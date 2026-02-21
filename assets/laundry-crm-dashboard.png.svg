@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-label="PC spec screenshot placeholder">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#e7eff3"/>
+      <stop offset="100%" stop-color="#d9e6ed"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <rect x="120" y="120" width="1040" height="480" rx="16" fill="#ffffff" stroke="#c9d7e0"/>
+  <text x="640" y="340" text-anchor="middle" fill="#35515f" font-size="38" font-family="sans-serif">PC Spec Program Screenshot</text>
+  <text x="640" y="390" text-anchor="middle" fill="#5f7682" font-size="24" font-family="sans-serif">Replace with actual image: assets/pc-spec-program.png</text>
+</svg>
