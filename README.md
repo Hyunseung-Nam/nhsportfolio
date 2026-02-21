@@ -4,9 +4,11 @@
 
 ## Access Links
 - Main: https://nhsportfolio.vercel.app
-- Projects: https://nhsportfolio.vercel.app/#projects
+- Delivery Projects: https://nhsportfolio.vercel.app/#delivery-projects
+- Personal Project: https://nhsportfolio.vercel.app/#personal-project
+- Approach: https://nhsportfolio.vercel.app/#approach
 - Stack: https://nhsportfolio.vercel.app/#stack
-- Workstyle: https://nhsportfolio.vercel.app/#workstyle
+- Collaboration: https://nhsportfolio.vercel.app/#collab
 - Contact: https://nhsportfolio.vercel.app/#contact
 
 ## Project Files
@@ -14,6 +16,7 @@
 - `styles.css`: 레이아웃 및 UI 스타일
 - `assets/`: 스크린샷/이미지 자산
 - `vercel.json`: Vercel 배포 설정
+- `redesign_notes.md`: prompt 기반 리디자인 근거 및 섹션 문구 정리
 
 ## Deployment
 1. Vercel에서 `nhsportfolio` 폴더를 프로젝트 루트로 연결
