@@ -240,6 +240,20 @@ h3 {
   margin: 0;
 }
 
+.image-compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+}
+
+.image-block {
+  display: block;
+}
+
+.image-log {
+  margin-top: 0.7rem;
+}
+
 .shot img {
   width: 100%;
   aspect-ratio: 16 / 9;
@@ -247,6 +261,12 @@ h3 {
   border: 1px solid var(--line);
   border-radius: 10px;
   background: #ffffff;
+}
+
+.image-caption {
+  margin-top: 0.34rem;
+  color: var(--muted);
+  font-size: 0.86rem;
 }
 
 .grid-2 {
@@ -298,6 +318,10 @@ a {
   }
 
   .project-card {
+    grid-template-columns: 1fr;
+  }
+
+  .image-compare {
     grid-template-columns: 1fr;
   }
 }
