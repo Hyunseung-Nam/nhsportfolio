@@ -269,6 +269,13 @@ h3 {
   max-height: 420px;
 }
 
+.shot img.crm-fit {
+  aspect-ratio: auto;
+  object-fit: contain;
+  max-height: 360px;
+  background: #ffffff;
+}
+
 .image-caption {
   margin-top: 0.34rem;
   color: var(--muted);
