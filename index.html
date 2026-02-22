@@ -3,23 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hyunseung | 실사용 납품·운영 중심 개발 포트폴리오</title>
+    <title>Hyunseung | 시스템 안정성과 운영을 고려하는 개발자</title>
     <meta
       name="description"
-      content="실사용 프로그램 납품과 운영(업데이트·유지보수) 경험을 중심으로 구성한 개발 포트폴리오 (Python 기반 로컬 배포 프로젝트)"
+      content="실사용 시스템 납품 및 운영 경험을 바탕으로 안정성·일관성·유지보수성을 고려해 설계하는 개발자 포트폴리오"
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
+
   <body>
     <header class="topbar">
       <div class="container topbar-inner">
         <a class="brand" href="#top">Hyunseung</a>
         <nav aria-label="주요 섹션">
           <ul class="nav-list">
-            <li><a href="#delivery-projects">실사용 납품</a></li>
-            <li><a href="#personal-project">개인 프로젝트</a></li>
-            <li><a href="#approach">문제 해결 방식</a></li>
-            <li><a href="#stack">기술 스택</a></li>
+            <li><a href="#projects">프로젝트</a></li>
+            <li><a href="#approach">설계 관점</a></li>
+            <li><a href="#stack">기술 역량</a></li>
             <li><a href="#collab">업무 스타일</a></li>
             <li><a href="#contact">연락</a></li>
           </ul>
@@ -27,20 +27,21 @@
       </div>
     </header>
 
+    <!-- HERO -->
     <section class="hero" id="top">
       <div class="container hero-grid simple-hero">
         <div>
-          <p class="eyebrow">DELIVERY · OPERATION · MAINTENANCE</p>
-          <h1>실사용 환경에서 “안정적으로 동작하는 프로그램”을 만드는 개발자</h1>
+          <p class="eyebrow">SYSTEM DESIGN · STABILITY · MAINTAINABILITY</p>
+          <h1>안정성과 일관성을 기준으로 시스템을 설계하는 개발자</h1>
           <p class="hero-copy">
-            유료 납품 프로젝트 2건(코인 세탁소 CRM, PC 사양 확인 프로그램)을 실제 운영 환경에 적용했고,
-            운영 중 요청·이슈를 정리해 업데이트로 반영했습니다.
+            실제 운영 환경에서 사용되는 프로그램을 납품·운영하며, 예외·실패 시나리오와 유지보수 관점을 고려한 설계를
+            경험했습니다.
           </p>
           <p class="hero-copy">
-            보여주기용 기능보다, <strong>운영에서 반복되는 실수/누락을 줄이는 설계</strong>와 <strong>환경 차이에 강한 수집·예외 처리</strong>를 우선합니다.
+            보여주기용 기능보다 <strong>운영 편의성</strong>, <strong>실패 대응</strong>, <strong>수정 가능성</strong>을 우선합니다.
           </p>
           <div class="hero-actions">
-            <a class="btn btn-fill" href="#delivery-projects">실사용 프로젝트 보기</a>
+            <a class="btn btn-fill" href="#projects">프로젝트 보기</a>
             <a class="btn btn-line" href="#contact">연락하기</a>
           </div>
         </div>
@@ -48,72 +49,108 @@
     </section>
 
     <main>
-      <section class="section" id="delivery-projects">
+      <!-- PROJECTS -->
+      <section class="section" id="projects">
         <div class="container">
-          <h2>실사용 납품 프로젝트</h2>
-          <p class="section-note">아래 2개 프로젝트는 납품 후 실제 현장에서 운영된 사례입니다. (고객/매장 정보는 비공개 원칙을 따릅니다.)</p>
+          <h2>대표 프로젝트</h2>
+          <p class="section-note">문제를 단정하기보다, 요청과 목표를 기준으로 설계 판단과 결과를 정리했습니다.</p>
 
+          <!-- CRM -->
           <article class="card project-card featured">
             <div>
-              <h3>1) 코인 세탁소 고객 관리 프로그램 (CRM)</h3>
+              <h3>1) 매장 운영 CRM 시스템 (포인트 관리)</h3>
 
               <p class="section-note">
                 <strong>Tags:</strong>
                 <span>Delivered</span> · <span>In Use</span> · <span>Maintained</span>
               </p>
 
-              <p><strong>한 줄 요약:</strong> 수기 포인트 관리에서 발생하던 오류·누락을 줄이기 위해 매장 운영형 CRM을 구축했습니다.</p>
-              <p><strong>문제:</strong> 수기 관리로 계산 실수, 누락, 기준 불일치가 발생해 운영 부담이 커졌습니다.</p>
-              <p><strong>해결:</strong> 운영자가 <strong>최소 입력</strong>으로 처리하도록 흐름을 단순화하고, 데이터 처리 기준을 로직으로 고정했습니다.</p>
-              <p><strong>결과:</strong> 실제 매장에서 사용 중이며, 운영 흐름에서 드러난 UX 이슈를 정리해 업데이트를 지속 적용했습니다.</p>
+              <p>
+                <strong>한 줄 요약:</strong> 매장 운영자가 고객에게 포인트를 보다 편하게 지급할 수 있도록, 운영 편의성 개선
+                요청을 기준으로 CRM을 설계·구현했습니다.
+              </p>
+
+              <p>
+                <strong>배경(요청):</strong> 특정 운영상의 문제를 전제로 하기보다는, 매장에서 고객에게 포인트를 지급하는 과정을
+                더 간단하고 편하게 만들고 싶다는 요청을 바탕으로 프로젝트를 시작했습니다.
+              </p>
+
+              <p>
+                <strong>설계 접근:</strong> 운영자가 고민 없이 사용할 수 있도록 입력 단계를 최소화하고, 포인트 지급·관리 흐름을
+                화면 기준으로 정리했습니다. 또한 운영 중 기준이 흔들리지 않도록 처리 규칙은 코드 로직으로 고정해 사용자
+                판단에 의존하지 않도록 구성했습니다.
+              </p>
+
+              <p>
+                <strong>운영 및 개선:</strong> 실제 매장에서 사용되며 전달된 피드백을 기준으로 입력 흐름과 화면 가독성을 개선하고,
+                업데이트를 지속적으로 반영했습니다.
+              </p>
 
               <div class="card" style="margin-top: 12px;">
-                <h4 style="margin: 0 0 8px 0;">현장 피드백 → UX 개선 반영 (요약)</h4>
+                <h4 style="margin: 0 0 8px 0;">운영 피드백 반영 사례 (요약)</h4>
                 <ul class="plain-list" style="margin: 0;">
                   <li><strong>검색 UX</strong>: 전화번호 입력 후 <strong>엔터</strong>로 검색되길 원함 → <strong>엔터/클릭 검색</strong> 모두 지원</li>
-                  <li><strong>가독성</strong>: 전화번호 숫자 구분 어려움 → <strong>자동 하이픈 포맷</strong> 적용(입력/리스트 동일 기준)</li>
+                  <li><strong>가독성</strong>: 전화번호 숫자 구분이 어려움 → <strong>자동 하이픈 포맷</strong> 적용(입력/리스트 동일 기준)</li>
                   <li><strong>시인성</strong>: 주요 숫자 확인이 번거로움 → <strong>크기·가중치</strong> 조정</li>
                 </ul>
                 <p class="section-note" style="margin: 10px 0 0;">
-                  ※ 피드백은 원문 캡처가 아닌, 개선 항목 중심으로 정리했습니다.
+                  ※ 커뮤니케이션 원문 캡처 대신, 개선 항목 중심으로 정리했습니다.
                 </p>
               </div>
 
               <p class="stack-line">
-                <strong>기술:</strong> Python(UI/로직), 데이터 처리 로직(기준 고정), 로컬 배포/업데이트 관리, 사용자 피드백 기반 UX 개선
+                <strong>기술/개념:</strong>
+                Python(UI/로직) · 입력 단계 최소화 · 처리 규칙 고정(로직화) · 로컬 배포/업데이트 · 피드백 기반 UX 개선
               </p>
             </div>
+
             <figure class="shot">
               <img
                 src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1280' height='720'%3E%3Crect width='100%25' height='100%25' fill='%23ffffff'/%3E%3C/svg%3E"
-                alt="코인세탁소 CRM 스크린샷 자리"
+                alt="CRM 스크린샷 자리"
                 loading="lazy"
               />
-              <figcaption class="section-note">
-                추천 이미지: CRM 메인 화면 1장 + (검색/전화번호 포맷) Before/After 2장
-              </figcaption>
+              <figcaption class="section-note">추천 이미지: CRM 메인 화면 1장 + (검색/전화번호 포맷) Before/After 2장</figcaption>
             </figure>
           </article>
 
+          <!-- PC SPEC -->
           <article class="card project-card featured">
             <div>
-              <h3>2) PC 사양 확인 프로그램</h3>
+              <h3>2) 시스템 정보 수집 프로그램 (PC 사양 확인)</h3>
 
               <p class="section-note">
                 <strong>Tags:</strong>
                 <span>Delivered</span> · <span>Signed</span> · <span>Maintained</span>
               </p>
 
-              <p><strong>한 줄 요약:</strong> 환경별 조회 실패를 줄이기 위해 다중 조회 + fallback 구조를 적용한 사양 확인 도구를 개발했습니다.</p>
-              <p><strong>문제:</strong> PC 환경별 차이로 단일 방식 조회만으로는 시스템 정보(CPU/GPU/RAM 등) 수집 안정성이 떨어질 수 있었습니다.</p>
-              <p><strong>해결:</strong> 여러 수집 경로를 조합하고, 실패 조건을 기준으로 <strong>대체 경로로 자동 전환</strong>되도록 설계했습니다. 예외 처리/로그를 포함해 유지보수 관점으로 구조화했습니다.</p>
-              <p><strong>결과:</strong> 다양한 환경에서 안정적으로 동작하는 형태로 배포했으며, 배포 신뢰성 강화를 위해 <strong>코드 서명</strong>을 적용했습니다.
+              <p>
+                <strong>한 줄 요약:</strong> 환경별 조회 실패를 줄이기 위해 다중 조회 + fallback 구조를 적용한 PC 사양 확인 도구를
+                개발했습니다.
+              </p>
+
+              <p>
+                <strong>문제 정의:</strong> PC 환경별 API 지원 차이로 인해 단일 수집 방식에서는 시스템 정보(CPU/GPU/RAM 등) 누락
+                가능성이 존재했습니다.
+              </p>
+
+              <p>
+                <strong>설계 접근:</strong> 여러 수집 경로를 조합하고 실패 조건을 기준으로 대체 경로로 자동 전환되도록
+                <strong>fallback 구조</strong>를 설계했습니다. 예외 처리/로그를 포함해 유지보수 관점으로 구조화했습니다.
+              </p>
+
+              <p>
+                <strong>구현 및 결과:</strong> 다양한 환경에서 안정적으로 동작하는 형태로 배포했으며, 배포 신뢰성 강화를 위해
+                <strong>코드 서명</strong>을 적용했습니다.
                 <span class="section-note">보호 강화를 위해 난독화/워터마킹을 단계적으로 적용 중입니다.</span>
               </p>
+
               <p class="stack-line">
-                <strong>기술:</strong> Python, 시스템 정보 수집 로직, 다중 조회·fallback 설계, 배포 환경 고려(코드 서명), 유지보수 대응(예외 처리/로그)
+                <strong>기술/개념:</strong>
+                Python · 다중 수집 전략 · failure handling(fallback) · 예외 처리/로그 · 배포 신뢰성(코드 서명)
               </p>
             </div>
+
             <figure class="shot">
               <img
                 src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1280' height='720'%3E%3Crect width='100%25' height='100%25' fill='%23ffffff'/%3E%3C/svg%3E"
@@ -128,107 +165,72 @@
         </div>
       </section>
 
+      <!-- APPROACH -->
       <section class="section muted" id="approach">
         <div class="container">
-          <h2>문제 해결 방식 / 강점</h2>
+          <h2>설계 및 문제 해결 관점</h2>
           <div class="highlight-grid">
             <article class="metric-card">
-              <p class="metric-label">비개발자 대상 UX</p>
-              <p class="metric-value">입력 단순화</p>
-              <p>현장 사용자가 “설명 없이도” 흐름을 따라갈 수 있도록 입력 단계·용어를 줄이고 기준을 고정합니다.</p>
+              <p class="metric-label">요청 정리</p>
+              <p class="metric-value">목표 중심</p>
+              <p>문제를 단정하기보다 요청과 목표를 먼저 정리하고, 구현 범위를 명확히 합니다.</p>
             </article>
             <article class="metric-card">
-              <p class="metric-label">운영 안정성</p>
-              <p class="metric-value">실패 시나리오</p>
-              <p>환경 차이·예외 케이스를 전제로 설계하고, 실패 조건에 따라 대체 경로로 전환되도록 구성합니다.</p>
+              <p class="metric-label">안정성</p>
+              <p class="metric-value">실패 전제</p>
+              <p>환경 차이와 예외를 기본 가정으로 두고, 실패 시 대체 경로로 전환되도록 설계합니다.</p>
             </article>
             <article class="metric-card">
-              <p class="metric-label">유지보수 관점</p>
-              <p class="metric-value">재현 → 수정</p>
-              <p>이슈는 먼저 재현 조건을 좁히고, 수정 범위와 배포 단위를 정해 업데이트로 반영합니다.</p>
+              <p class="metric-label">유지보수</p>
+              <p class="metric-value">재현 우선</p>
+              <p>이슈는 재현 조건을 먼저 좁힌 뒤 수정 범위와 배포 단위를 결정합니다.</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="section" id="personal-project">
+      <!-- STACK -->
+      <section class="section" id="stack">
         <div class="container">
-          <h2>개인 프로젝트 (업무 흐름 개선 중심)</h2>
-          <p class="section-note">
-            아래 항목은 납품 프로젝트와 구분되는 개인 프로젝트입니다. “보고 누락/수기 정리” 같은 반복 문제를 줄이기 위한 흐름 설계에 집중했습니다.
-          </p>
-
-          <article class="card project-card personal-tier">
-            <div>
-              <h3>소규모 ERP (로그인 연동)</h3>
-              <p><strong>한 줄 요약:</strong> 보고 누락과 수기 정리로 인한 혼선을 줄이기 위해 로그인 기반 소규모 ERP를 설계·구현했습니다.</p>
-              <p><strong>문제:</strong> 업무 보고가 여러 채널로 흩어져 누락/중복이 발생했고, 정리 작업이 반복되었습니다.</p>
-              <p><strong>해결:</strong> 로그인 기반 사용자 구분 구조를 구성하고, 입력·저장·조회 흐름을 일관되게 만들어 보고 상태를 한 곳에서 관리하도록 했습니다.</p>
-              <p><strong>결과:</strong> 보고 상태를 한 화면에서 확인할 수 있도록 하여, 누락 가능성을 낮추는 구조를 만들었습니다.</p>
-              <p class="stack-line">
-                <strong>기술:</strong> Python, 인증/로그인 로직, CRUD 흐름 설계, 데이터 관리 구조, 화면 흐름 구성
-              </p>
-            </div>
-            <figure class="shot">
-              <img
-                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1280' height='720'%3E%3Crect width='100%25' height='100%25' fill='%23ffffff'/%3E%3C/svg%3E"
-                alt="소규모 ERP 스크린샷 자리"
-                loading="lazy"
-              />
-              <figcaption class="section-note">추천 이미지: 로그인/목록/상태 화면 1~2장 (민감 데이터 제거)</figcaption>
-            </figure>
-          </article>
-        </div>
-      </section>
-
-      <section class="section muted" id="stack">
-        <div class="container">
-          <h2>기술 스택 (활용 맥락)</h2>
+          <h2>기술 역량</h2>
           <div class="grid-2">
             <article class="card">
-              <h3>Python</h3>
-              <p>납품 프로젝트와 ERP에서 UI/로직 구현, 예외 처리, 데이터 처리 기준 고정, 운영 피드백 반영에 사용했습니다.</p>
+              <h3>구현</h3>
+              <p>Python 기반 UI/로직 구현, 데이터 처리 로직 구성, 입력값 검증, 예외 처리</p>
             </article>
             <article class="card">
-              <h3>시스템/환경 대응</h3>
-              <p>환경 차이를 전제로 다중 조회·fallback을 설계하고, 로그로 원인 추적이 가능하도록 구성했습니다.</p>
+              <h3>안정성 설계</h3>
+              <p>다중 수집 경로 구성, fallback 설계, 실패 조건 정의, 로그 기반 원인 추적</p>
             </article>
             <article class="card">
-              <h3>배포 / 운영</h3>
-              <p>로컬 배포 환경 구성, 업데이트 반영, 운영 중 이슈 재현 및 수정 배포 흐름을 관리했습니다.</p>
+              <h3>배포/운영</h3>
+              <p>로컬 배포, 업데이트 반영, 운영 중 수정 배포 흐름 관리, 코드 서명 적용</p>
             </article>
             <article class="card">
-              <h3>코드 서명</h3>
-              <p>배포 신뢰성 확보를 위해 코드 서명을 적용했습니다.</p>
-            </article>
-            <article class="card">
-              <h3>Git</h3>
-              <p>버전 이력 관리, 수정 반영, 배포 단위 기록에 사용했습니다.</p>
-            </article>
-            <article class="card">
-              <h3>구조화 / 유지보수</h3>
-              <p>모듈을 나누고 실패 조건을 명확히 해, 수정 범위를 좁히기 쉬운 형태로 구성했습니다.</p>
+              <h3>버전 관리</h3>
+              <p>Git 기반 변경 이력 관리, 릴리즈 단위 기록, 유지보수 대응</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="section" id="collab">
+      <!-- WORK STYLE -->
+      <section class="section muted" id="collab">
         <div class="container">
           <h2>업무 스타일</h2>
           <ul class="plain-list">
-            <li><strong>요청을 받을 때:</strong> “무엇을 만들까”보다 “왜 필요한가 / 어디서 문제가 나는가”를 먼저 정리합니다.</li>
-            <li><strong>변경이 생길 때:</strong> 영향 범위를 확인하고, 선택지(그대로/대안/추가 작업)를 함께 공유합니다.</li>
-            <li><strong>범위를 잡을 때:</strong> 초기 구현 범위와 이후 개선 범위를 구분해 운영 중 혼선을 줄입니다.</li>
-            <li><strong>이슈 대응:</strong> 재현 조건을 좁힌 뒤, 수정 범위와 배포 단위를 결정합니다.</li>
+            <li><strong>요청을 받을 때:</strong> “무엇을 만들까”보다 “어떤 목표를 달성해야 하나”를 먼저 정리합니다.</li>
+            <li><strong>변경이 생길 때:</strong> 영향 범위를 확인하고 선택지(그대로/대안/추가 작업)를 함께 공유합니다.</li>
+            <li><strong>이슈 대응:</strong> 재현 조건을 좁힌 뒤 수정 범위와 배포 단위를 결정합니다.</li>
           </ul>
         </div>
       </section>
 
-      <section class="section muted" id="contact">
+      <!-- CONTACT -->
+      <section class="section" id="contact">
         <div class="container contact-box">
           <h2>Contact</h2>
-          <p>실사용 환경에서 발생하는 문제를 정리하고, 재현 가능한 형태로 개선·배포해 운영 오류를 줄이는 작업에 관심이 있습니다.</p>
+          <p>실사용 환경에서 발생하는 요구와 예외를 정리해, 안정적으로 운영되는 프로그램을 만드는 작업에 관심이 있습니다.</p>
           <p>
             GitHub:
             <a href="https://github.com/Hyunseung-Nam" target="_blank" rel="noreferrer">github.com/Hyunseung-Nam</a>
