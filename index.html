@@ -9,6 +9,32 @@
       content="실사용 시스템 납품 및 운영 경험을 바탕으로 안정성·일관성·유지보수성을 고려해 설계하는 개발자 포트폴리오"
     />
     <link rel="stylesheet" href="styles.css" />
+
+    <!-- Mermaid (다이어그램 렌더링) -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script>
+      // startOnLoad: 페이지 로드 시 자동 렌더링
+      mermaid.initialize({
+        startOnLoad: true,
+        theme: "default",
+        securityLevel: "strict",
+      });
+    </script>
+
+    <!-- Mermaid 영역이 카드 안에서 깔끔하게 보이도록 최소 스타일 -->
+    <style>
+      .diagram-card {
+        margin-top: 12px;
+      }
+      .diagram-card .mermaid {
+        overflow-x: auto;
+      }
+      /* 다이어그램 배경이 페이지 배경색 영향을 덜 받게 */
+      .mermaid svg {
+        max-width: 100%;
+        height: auto;
+      }
+    </style>
   </head>
 
   <body>
@@ -38,7 +64,7 @@
             경험했습니다.
           </p>
           <p class="hero-copy">
-            보여주기용 기능보다 <strong>운영 편의성</strong>, <strong>실패 대응</strong>, <strong>수정 가능성</strong>을 우선합니다.
+            기능 구현 자체보다 <strong>운영 편의성</strong>, <strong>실패 대응</strong>, <strong>수정 가능성</strong>을 우선합니다.
           </p>
           <div class="hero-actions">
             <a class="btn btn-fill" href="#projects">프로젝트 보기</a>
@@ -59,11 +85,6 @@
           <article class="card project-card featured">
             <div>
               <h3>1) 매장 운영 CRM 시스템 (포인트 관리)</h3>
-
-              <p class="section-note">
-                <strong>Tags:</strong>
-                <span>Delivered</span> · <span>In Use</span> · <span>Maintained</span>
-              </p>
 
               <p>
                 <strong>한 줄 요약:</strong> 매장 운영자가 고객에게 포인트를 보다 편하게 지급할 수 있도록, 운영 편의성 개선
@@ -119,11 +140,6 @@
             <div>
               <h3>2) 시스템 정보 수집 프로그램 (PC 사양 확인)</h3>
 
-              <p class="section-note">
-                <strong>Tags:</strong>
-                <span>Delivered</span> · <span>Signed</span> · <span>Maintained</span>
-              </p>
-
               <p>
                 <strong>한 줄 요약:</strong> 환경별 조회 실패를 줄이기 위해 다중 조회 + fallback 구조를 적용한 PC 사양 확인 도구를
                 개발했습니다.
@@ -149,6 +165,52 @@
                 <strong>기술/개념:</strong>
                 Python · 다중 수집 전략 · failure handling(fallback) · 예외 처리/로그 · 배포 신뢰성(코드 서명)
               </p>
+
+              <!-- ✅ 여기에 Mermaid 다이어그램 삽입 -->
+              <div class="card diagram-card">
+                <h4 style="margin: 0 0 8px 0;">Fallback 구조도 (요약)</h4>
+                <div class="mermaid">
+graph LR
+  %% 전체 스타일 설정
+  classDef module fill:#e1f5fe,stroke:#01579b,stroke-width:2px;
+  classDef process fill:#ffffff,stroke:#333,stroke-width:1px;
+  classDef fallback fill:#fff3e0,stroke:#ef6c00,stroke-width:1px,stroke-dasharray: 5 5;
+  classDef failure fill:#ffebee,stroke:#c62828,stroke-width:1px;
+
+  subgraph Collector_Module[Core: collector.py]
+    direction TB
+
+    GPU1[1차: DXGI 모듈 호출] --> GPU_COND{DXGI 가용/성공?}
+    GPU_COND -- "No (실패/비가용)" --> GPU2[Fallback: WMI Win32_VideoController]
+    GPU_COND -- "Yes" --> VRAM_COND{VRAM > 1GB?}
+    GPU2 --> VRAM_COND
+    VRAM_COND -- "No" --> VRAM_EXIT[VRAM 표시 생략]
+    VRAM_COND -- "Yes" --> GPU_FINAL[GPU 정보 확정]
+
+    CPU1[1차: WMI/Registry 수집] --> CPU_COND{수집 성공?}
+    CPU_COND -- "No" --> CPU2[Fallback: platform.processor]
+    CPU2 --> CPU_FINAL[CPU 정보 확정]
+
+    PC1[1차: WMI PCSystemType/Ex] --> PC_COND{분류 성공?}
+    PC_COND -- "No" --> PC2[Fallback: 유형 미확정 표시]
+  end
+
+  subgraph Controller_Module[Core: controller.py]
+    direction TB
+
+    URL1[URL 검증] --> URL_COND{URL 유효?}
+    URL_COND -- "No" --> URL_ERR[오류 안내]
+    URL_COND -- "Yes" --> URL_OPEN{webbrowser 오픈?}
+    URL_OPEN -- "실패/예외" --> URL2[Fallback: 클립보드 복사 안내]
+  end
+
+  class Collector_Module module;
+  class Controller_Module module;
+                </div>
+                <p class="section-note" style="margin-top: 10px;">
+                  ※ 회사명/외부 링크 등 민감 요소는 다이어그램에 포함하지 않는 방식으로 정리했습니다.
+                </p>
+              </div>
             </div>
 
             <figure class="shot">
@@ -158,7 +220,7 @@
                 loading="lazy"
               />
               <figcaption class="section-note">
-                추천 이미지: 실행 결과 화면 1장 + fallback 구조 다이어그램(간단) 1장 + 코드 서명(디지털 서명 탭) 1장
+                추천 이미지: 실행 결과 화면 1장 + (대체로 이 다이어그램이 스크린샷을 일부 대체 가능) + 코드 서명(디지털 서명 탭) 1장
               </figcaption>
             </figure>
           </article>
