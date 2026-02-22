@@ -263,6 +263,12 @@ h3 {
   background: #ffffff;
 }
 
+.shot img.fit-contain {
+  aspect-ratio: auto;
+  object-fit: contain;
+  max-height: 420px;
+}
+
 .image-caption {
   margin-top: 0.34rem;
   color: var(--muted);
