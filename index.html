@@ -177,16 +177,16 @@
             <figure class="shot">
               <div class="image-compare">
                 <div class="image-block">
-                  <img class="crm-fit" src="assets/before.png" alt="CRM UX 개선 전 화면" loading="lazy" />
+                  <img class="crm-fit crm-main" src="assets/before.png" alt="CRM UX 개선 전 화면" loading="lazy" />
                   <p class="image-caption">실제 운영 화면 예시 (개선 전)</p>
                 </div>
                 <div class="image-block">
-                  <img class="crm-fit" src="assets/after.png" alt="CRM UX 개선 후 화면" loading="lazy" />
+                  <img class="crm-fit crm-main" src="assets/after.png" alt="CRM UX 개선 후 화면" loading="lazy" />
                   <p class="image-caption">UX 개선 적용 후 화면</p>
                 </div>
               </div>
               <div class="image-log">
-                <img class="crm-fit" src="assets/log.png" alt="CRM 운영 로그 출력 화면" loading="lazy" />
+                <img class="crm-fit crm-log" src="assets/log.png" alt="CRM 운영 로그 출력 화면" loading="lazy" />
                 <p class="image-caption">운영 중 이슈 추적을 위한 로그 출력 예시</p>
                 <p class="section-note">
                   로그 화면은 입력/처리 흐름을 확인하고, 운영 중 발생한 이슈를 재현·추적하기 위한 운영 보조 수단으로
@@ -219,7 +219,8 @@
 
               <p>
                 <strong>구현 및 결과:</strong> 다양한 환경에서 안정적으로 동작하는 형태로 배포했으며, 배포 신뢰성 강화를 위해
-                <strong>코드 서명</strong>을 적용했습니다.
+                <strong>코드 서명</strong>을 적용했습니다. 프로그램 실행 화면은 당사와 저작권 범위 협의가 진행 중이라 현재
+                비공개 처리했습니다.
                 <span class="section-note">보호 강화를 위해 난독화/워터마킹을 단계적으로 적용 중입니다.</span>
               </p>
 
@@ -229,7 +230,7 @@
               </p>
 
               <!-- ✅ 여기에 Mermaid 다이어그램 삽입 -->
-              <div class="card diagram-card">
+              <div class="card diagram-card diagram-focus">
                 <h4 style="margin: 0 0 8px 0;">Fallback 구조도 (요약)</h4>
                 <div class="mermaid">
 flowchart LR
@@ -279,8 +280,12 @@ flowchart LR
             </div>
 
             <figure class="shot">
-              <img class="fit-contain" src="assets/code_sign.png" alt="Windows 디지털 서명 확인 화면" loading="lazy" />
-              <figcaption class="image-caption">배포 신뢰성 확보를 위한 코드 서명 적용 화면</figcaption>
+              <p class="image-caption"><strong>실행 화면 비공개 안내:</strong> 프로그램 화면은 현재 저작권 범위 논의 중으로 미공개 상태입니다.</p>
+              <p class="section-note">
+                이 프로젝트는 실행 화면 대신 fallback 구조도 중심으로 설계 판단을 확인할 수 있도록 정리했습니다.
+              </p>
+              <img class="fit-contain code-sign-sub" src="assets/code_sign.png" alt="Windows 디지털 서명 확인 화면" loading="lazy" />
+              <figcaption class="image-caption">보조 자료: 배포 신뢰성 확보를 위한 코드 서명 적용 화면</figcaption>
               <p class="section-note">
                 Mermaid 구조도와 함께 배포 단계에서의 검증 흐름을 보조하는 자료로 사용했습니다.
               </p>
