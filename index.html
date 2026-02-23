@@ -43,7 +43,8 @@
         <a class="brand" href="#top">Hyunseung</a>
         <nav aria-label="주요 섹션">
           <ul class="nav-list">
-            <li><a href="#projects">프로젝트</a></li>
+            <li><a href="#project-crm">프로젝트 1</a></li>
+            <li><a href="#project-pc">프로젝트 2</a></li>
             <li><a href="#approach">설계 관점</a></li>
             <li><a href="#stack">기술 역량</a></li>
             <li><a href="#collab">업무 스타일</a></li>
@@ -58,7 +59,8 @@
       <div class="container hero-grid simple-hero">
         <div>
           <p class="eyebrow">SYSTEM DESIGN · STABILITY · MAINTAINABILITY</p>
-          <h1>안정성과 일관성을 기준으로 시스템을 설계하는 개발자</h1>
+          <h1>실사용 업무 프로그램을 설계·납품·운영하는 백엔드/자동화 개발자</h1>
+          <p class="identity-line">코인 세탁소 CRM, PC 사양 확인 프로그램을 유료 납품하고 운영 피드백 기반 업데이트를 수행해왔습니다.</p>
           <p class="hero-copy">
             실제 운영 환경에서 사용되는 프로그램을 납품·운영하며, 예외·실패 시나리오와 유지보수 관점을 고려한 설계를
             경험했습니다.
@@ -73,6 +75,11 @@
             <a class="btn btn-fill" href="#projects">프로젝트 보기</a>
             <a class="btn btn-line" href="#contact">연락하기</a>
           </div>
+          <div class="hero-quick">
+            <div class="quick-item"><span>직무</span><strong>백엔드/자동화 개발</strong></div>
+            <div class="quick-item"><span>핵심 경험</span><strong>실사용 납품 2건</strong></div>
+            <div class="quick-item"><span>강점</span><strong>운영 안정성·유지보수 설계</strong></div>
+          </div>
         </div>
       </div>
     </section>
@@ -81,12 +88,18 @@
       <!-- PROJECTS -->
       <section class="section" id="projects">
         <div class="container">
-          <h2>대표 프로젝트</h2>
-          <p class="section-note">문제를 단정하기보다, 요청과 목표를 기준으로 설계 판단과 결과를 정리했습니다.</p>
+          <h2>대표 프로젝트 2개</h2>
+          <p class="section-note">아래 2개 프로젝트를 각각 독립 섹션으로 구분했습니다. 실사용 납품과 운영 관점만 집중해 확인할 수 있습니다.</p>
+
+          <div class="project-tabs" aria-label="프로젝트 바로가기">
+            <a href="#project-crm">1. 매장 운영 CRM 시스템</a>
+            <a href="#project-pc">2. 시스템 정보 수집 프로그램</a>
+          </div>
 
           <!-- CRM -->
-          <article class="card project-card featured">
+          <article class="card project-card featured project-primary" id="project-crm">
             <div>
+              <p class="project-kicker">PROJECT 01 · 실사용 납품</p>
               <h3>1) 매장 운영 CRM 시스템 (포인트 관리)</h3>
 
               <p>
@@ -174,8 +187,9 @@
           </article>
 
           <!-- PC SPEC -->
-          <article class="card project-card featured">
+          <article class="card project-card featured project-secondary" id="project-pc">
             <div>
+              <p class="project-kicker">PROJECT 02 · 실사용 납품</p>
               <h3>2) 시스템 정보 수집 프로그램 (PC 사양 확인)</h3>
 
               <p>
