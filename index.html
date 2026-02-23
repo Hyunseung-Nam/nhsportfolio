@@ -16,8 +16,15 @@
       // startOnLoad: 페이지 로드 시 자동 렌더링
       mermaid.initialize({
         startOnLoad: true,
-        theme: "default",
+        theme: "neutral",
         securityLevel: "strict",
+        flowchart: {
+          curve: "basis",
+          nodeSpacing: 36,
+          rankSpacing: 50,
+          padding: 12,
+          htmlLabels: true,
+        },
       });
     </script>
 
@@ -25,9 +32,12 @@
     <style>
       .diagram-card {
         margin-top: 12px;
+        border: 1px solid #c9d8e1;
+        background: #fbfdfe;
       }
       .diagram-card .mermaid {
         overflow-x: auto;
+        padding: 8px;
       }
       /* 다이어그램 배경이 페이지 배경색 영향을 덜 받게 */
       .mermaid svg {
@@ -222,42 +232,45 @@
               <div class="card diagram-card">
                 <h4 style="margin: 0 0 8px 0;">Fallback 구조도 (요약)</h4>
                 <div class="mermaid">
-graph LR
-  %% 전체 스타일 설정
-  classDef module fill:#e1f5fe,stroke:#01579b,stroke-width:2px;
-  classDef process fill:#ffffff,stroke:#333,stroke-width:1px;
-  classDef fallback fill:#fff3e0,stroke:#ef6c00,stroke-width:1px,stroke-dasharray: 5 5;
-  classDef failure fill:#ffebee,stroke:#c62828,stroke-width:1px;
+flowchart LR
+  classDef module fill:#eaf5fb,stroke:#2f6f8a,stroke-width:1.5px,color:#1b3c4b;
+  classDef action fill:#ffffff,stroke:#738d9b,stroke-width:1px,color:#1d2f38;
+  classDef decision fill:#fff6e8,stroke:#c0792c,stroke-width:1px,color:#5f3d14;
+  classDef fallback fill:#fff1f1,stroke:#b44a4a,stroke-width:1px,stroke-dasharray:4 3,color:#612626;
+  classDef result fill:#eef8f1,stroke:#4d8a5c,stroke-width:1px,color:#21472a;
 
-  subgraph Collector_Module[Core: collector.py]
+  subgraph COLLECTOR["collector.py · 시스템 정보 수집"]
     direction TB
 
-    GPU1[1차: DXGI 모듈 호출] --> GPU_COND{DXGI 가용/성공?}
-    GPU_COND -- "No (실패/비가용)" --> GPU2[Fallback: WMI Win32_VideoController]
-    GPU_COND -- "Yes" --> VRAM_COND{VRAM > 1GB?}
+    GPU1["GPU 1차 조회<br/>(DXGI)"]:::action --> GPU_COND{"조회 성공 여부"}:::decision
+    GPU_COND -- "실패/비가용" --> GPU2["Fallback: WMI VideoController"]:::fallback
+    GPU_COND -- "성공" --> VRAM_COND{"VRAM > 1GB"}:::decision
     GPU2 --> VRAM_COND
-    VRAM_COND -- "No" --> VRAM_EXIT[VRAM 표시 생략]
-    VRAM_COND -- "Yes" --> GPU_FINAL[GPU 정보 확정]
+    VRAM_COND -- "No" --> VRAM_SKIP["VRAM 표시 생략"]:::result
+    VRAM_COND -- "Yes" --> GPU_OK["GPU 정보 확정"]:::result
 
-    CPU1[1차: WMI/Registry 수집] --> CPU_COND{수집 성공?}
-    CPU_COND -- "No" --> CPU2[Fallback: platform.processor]
-    CPU2 --> CPU_FINAL[CPU 정보 확정]
+    CPU1["CPU 1차 조회<br/>(WMI/Registry)"]:::action --> CPU_COND{"수집 성공 여부"}:::decision
+    CPU_COND -- "No" --> CPU2["Fallback: platform.processor"]:::fallback
+    CPU_COND -- "Yes" --> CPU_OK["CPU 정보 확정"]:::result
+    CPU2 --> CPU_OK
 
-    PC1[1차: WMI PCSystemType/Ex] --> PC_COND{분류 성공?}
-    PC_COND -- "No" --> PC2[Fallback: 유형 미확정 표시]
+    PC1["PC 유형 1차 분류<br/>(WMI PCSystemType/Ex)"]:::action --> PC_COND{"분류 성공 여부"}:::decision
+    PC_COND -- "No" --> PC2["Fallback: 유형 미확정"]:::fallback
+    PC_COND -- "Yes" --> PC_OK["PC 유형 확정"]:::result
+    PC2 --> PC_OK
   end
 
-  subgraph Controller_Module[Core: controller.py]
+  subgraph CONTROLLER["controller.py · 실행 제어"]
     direction TB
-
-    URL1[URL 검증] --> URL_COND{URL 유효?}
-    URL_COND -- "No" --> URL_ERR[오류 안내]
-    URL_COND -- "Yes" --> URL_OPEN{webbrowser 오픈?}
-    URL_OPEN -- "실패/예외" --> URL2[Fallback: 클립보드 복사 안내]
+    URL1["URL 유효성 검사"]:::action --> URL_COND{"유효한 URL"}:::decision
+    URL_COND -- "No" --> URL_ERR["오류 안내"]:::result
+    URL_COND -- "Yes" --> URL_OPEN{"브라우저 오픈 성공"}:::decision
+    URL_OPEN -- "No" --> URL2["Fallback: 클립보드 복사 안내"]:::fallback
+    URL_OPEN -- "Yes" --> URL_OK["오픈 완료"]:::result
   end
 
-  class Collector_Module module;
-  class Controller_Module module;
+  class COLLECTOR module;
+  class CONTROLLER module;
                 </div>
                 <p class="section-note" style="margin-top: 10px;">
                   ※ 회사명/외부 링크 등 민감 요소는 다이어그램에 포함하지 않는 방식으로 정리했습니다.
