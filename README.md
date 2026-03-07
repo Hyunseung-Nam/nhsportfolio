@@ -14,18 +14,20 @@
 - `styles.css`: 레이아웃 및 UI 스타일
 - `assets/`: 스크린샷/이미지 자산
 - `vercel.json`: Vercel 배포 설정
-- `.github/workflows/vercel-deploy.yml`: `main` 푸시 시 자동 배포
 
-## Auto Deploy (GitHub Actions + Vercel)
-아래 GitHub Repository Secrets가 설정되어 있으면, `main` 브랜치 푸시마다 자동 배포됩니다.
+## Auto Deploy (Vercel GitHub Integration)
+이 저장소는 Vercel에서 GitHub 저장소를 직접 연동해 자동 배포합니다.
 
-- `VERCEL_TOKEN`
-- `VERCEL_ORG_ID`
-- `VERCEL_PROJECT_ID`
+- `main` 푸시: Production 배포
+- Pull Request: Preview 배포
 
-현재 프로젝트 기준 값:
-- `VERCEL_ORG_ID`: `team_SkpuHQg2igxvNrbpZxGbhx3J`
-- `VERCEL_PROJECT_ID`: `prj_OmFbHtXNmErMqdr3VLRMkIm5KVc1`
+설정 방법:
+1. Vercel Dashboard > Project `nhsportfolio` > Settings > Git
+2. Git Provider를 GitHub로 연결
+3. Repository를 `Hyunseung-Nam/nhsportfolio`로 선택
+4. Production Branch를 `main`으로 설정
+
+이 방식은 GitHub Actions 시크릿(`VERCEL_TOKEN` 등) 없이 동작합니다.
 
 ## Local Preview
 정적 서버 실행 후 확인:
