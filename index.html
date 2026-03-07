@@ -3,382 +3,229 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hyunseung | 시스템 안정성과 운영을 고려하는 개발자</title>
+    <title>Hyunseung Nam | Product-Minded Backend Engineer</title>
     <meta
       name="description"
-      content="실사용 시스템 납품 및 운영 경험을 바탕으로 안정성·일관성·유지보수성을 고려해 설계하는 개발자 포트폴리오"
+      content="실사용 시스템 납품 경험을 바탕으로 안정성, 운영성, 유지보수성을 설계하는 백엔드/자동화 개발자 포트폴리오"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
-
-    <!-- Mermaid (다이어그램 렌더링) -->
-    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
-    <script>
-      // startOnLoad: 페이지 로드 시 자동 렌더링
-      mermaid.initialize({
-        startOnLoad: true,
-        theme: "neutral",
-        securityLevel: "strict",
-        flowchart: {
-          curve: "basis",
-          nodeSpacing: 36,
-          rankSpacing: 50,
-          padding: 12,
-          htmlLabels: true,
-        },
-      });
-    </script>
-
-    <!-- Mermaid 영역이 카드 안에서 깔끔하게 보이도록 최소 스타일 -->
-    <style>
-      .diagram-card {
-        margin-top: 12px;
-        border: 1px solid #b9ccd5;
-        background: #f7fbfc;
-      }
-      .diagram-card .mermaid {
-        overflow-x: auto;
-        padding: 8px;
-      }
-      /* 다이어그램 배경이 페이지 배경색 영향을 덜 받게 */
-      .mermaid svg {
-        max-width: 100%;
-        height: auto;
-      }
-    </style>
   </head>
-
   <body>
-    <header class="topbar">
+    <div class="bg-orb orb-a" aria-hidden="true"></div>
+    <div class="bg-orb orb-b" aria-hidden="true"></div>
+
+    <header class="topbar" id="top">
       <div class="container topbar-inner">
-        <a class="brand" href="#top">Hyunseung</a>
+        <a class="brand" href="#top">HN</a>
         <nav aria-label="주요 섹션">
           <ul class="nav-list">
-            <li><a href="#project-crm">프로젝트 1</a></li>
-            <li><a href="#project-pc">프로젝트 2</a></li>
-            <li><a href="#approach">설계 관점</a></li>
-            <li><a href="#stack">기술 역량</a></li>
-            <li><a href="#collab">업무 스타일</a></li>
-            <li><a href="#contact">연락</a></li>
+            <li><a href="#work">Work</a></li>
+            <li><a href="#principles">Principles</a></li>
+            <li><a href="#stack">Stack</a></li>
+            <li><a href="#contact">Contact</a></li>
           </ul>
         </nav>
       </div>
     </header>
 
-    <!-- HERO -->
-    <section class="hero" id="top">
-      <div class="container hero-grid simple-hero">
-        <div>
-          <p class="eyebrow">SYSTEM DESIGN · STABILITY · MAINTAINABILITY</p>
-          <h1>실사용 업무 프로그램을 설계·납품·운영하는 <span class="focus-inline">백엔드/자동화 개발자</span></h1>
-          <p class="identity-line">코인 세탁소 CRM, PC 사양 확인 프로그램을 유료 납품하고 운영 피드백 기반 업데이트를 수행해왔습니다.</p>
-          <p class="hero-copy focus-copy">
-            실제 운영 환경에서 사용되는 프로그램을 납품·운영하며, 예외·실패 시나리오와 유지보수 관점을 고려한 설계를
-            경험했습니다.
-          </p>
-          <p class="hero-copy focus-copy">
-            기능 구현 자체보다 <strong>운영 편의성</strong>, <strong>실패 대응</strong>, <strong>수정 가능성</strong>을 우선합니다.
-          </p>
-          <p class="hero-copy focus-copy">
-            화면 구성도 시스템의 일부로 보고, <strong>불필요한 요소를 제거한 미니멀 UI</strong>로 빠른 인지와 낮은 시각적 피로도를 목표로 합니다.
-          </p>
-          <div class="hero-actions">
-            <a class="btn btn-fill" href="#projects">프로젝트 보기</a>
-            <a class="btn btn-line" href="#contact">연락하기</a>
-          </div>
-          <div class="hero-quick">
-            <div class="quick-item"><span>직무</span><strong>백엔드/자동화 개발</strong></div>
-            <div class="quick-item"><span>핵심 경험</span><strong>실사용 납품 2건</strong></div>
-            <div class="quick-item"><span>강점</span><strong>운영 안정성·유지보수 설계</strong></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <main>
-      <!-- PROJECTS -->
-      <section class="section" id="projects">
-        <div class="container">
-          <h2>대표 프로젝트 2개</h2>
-          <p class="section-note">아래 2개 프로젝트를 각각 독립 섹션으로 구분했습니다. 실사용 납품과 운영 관점만 집중해 확인할 수 있습니다.</p>
-
-          <div class="project-tabs" aria-label="프로젝트 바로가기">
-            <a href="#project-crm">1. 매장 운영 CRM 시스템</a>
-            <a href="#project-pc">2. 시스템 정보 수집 프로그램</a>
+      <section class="hero">
+        <div class="container hero-layout">
+          <div class="hero-copy">
+            <p class="kicker">SHIPPED SYSTEMS · OPERATIONS-FIRST DESIGN</p>
+            <h1>
+              운영 중에도 무너지지 않는 제품을 만드는
+              <span>백엔드/자동화 개발자</span>
+            </h1>
+            <p class="hero-desc">
+              코인 세탁소 CRM과 PC 사양 수집 도구를 실사용 환경에 납품하고,
+              피드백 기반으로 개선해왔습니다.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-solid" href="#work">프로젝트 보기</a>
+              <a class="btn btn-ghost" href="#contact">협업 문의</a>
+            </div>
           </div>
 
-          <!-- CRM -->
-          <article class="card project-card featured project-primary" id="project-crm">
-            <div>
-              <p class="project-kicker">PROJECT 01 · 실사용 납품</p>
-              <h3>1) 매장 운영 CRM 시스템 (포인트 관리)</h3>
+          <aside class="hero-metrics" aria-label="핵심 지표">
+            <article class="metric-card delay-1">
+              <p>납품 프로젝트</p>
+              <strong>2건</strong>
+              <span>실사용 운영 및 후속 개선</span>
+            </article>
+            <article class="metric-card delay-2">
+              <p>핵심 역량</p>
+              <strong>Fallback 설계</strong>
+              <span>환경 차이를 고려한 실패 대응</span>
+            </article>
+            <article class="metric-card delay-3">
+              <p>지향점</p>
+              <strong>운영 안정성</strong>
+              <span>문제 재현 가능한 구조 우선</span>
+            </article>
+          </aside>
+        </div>
+      </section>
 
-              <p class="focus-copy">
-                <strong>한 줄 요약:</strong> 매장 운영자가 고객에게 포인트를 보다 편하게 지급할 수 있도록, 운영 편의성 개선
-                요청을 기준으로 CRM을 설계·구현했습니다.
-              </p>
+      <section class="section" id="work">
+        <div class="container">
+          <div class="section-head">
+            <p class="kicker">SELECTED WORK</p>
+            <h2>읽는 포트폴리오가 아닌, 동작하는 결과 중심</h2>
+          </div>
 
+          <article class="project-panel">
+            <div class="project-info">
+              <p class="project-tag">PROJECT 01</p>
+              <h3>매장 운영 CRM 시스템 (포인트 관리)</h3>
               <p>
-                <strong>배경(요청):</strong> 매장에서 고객 포인트 지급 과정이
-                보다 일관된 기준으로 관리되길 바라는 요청이 있었습니다.
+                운영자의 입력 부담을 줄이고 포인트 지급 기준을 코드 로직으로 고정해,
+                사용자 판단 편차를 줄이는 데 집중했습니다.
               </p>
-
-              <p>
-                <strong>설계 접근:</strong> 운영자가 고민 없이 사용할 수 있도록 입력 단계를 최소화하고, 포인트 지급·관리 흐름을
-                화면 기준으로 정리했습니다. 또한 운영 중 기준이 흔들리지 않도록 처리 규칙은 코드 로직으로 고정해 사용자
-                판단에 의존하지 않도록 구성했습니다.
-              </p>
-
-              <p>
-                <strong>운영 및 개선:</strong> 실제 매장에서 사용되며 전달된 피드백을 기준으로 입력 흐름과 화면 가독성을 개선하고,
-                업데이트를 지속적으로 반영했습니다.
-              </p>
-
-              <div class="card" style="margin-top: 12px;">
-                <h4 style="margin: 0 0 8px 0;">UX 개선 사항 (실사용 기준)</h4>
-              
-                <ul class="plain-list" style="margin: 0;">
-                  <li>
-                    <strong>검색 UX 개선</strong>
-                    <p style="margin: 6px 0 0;">
-                      전화번호 입력 시 <strong>자동 검색</strong> 방식으로 개선.
-                      기존 Enter/클릭 검색 요청에 대해 사용성 관점에서 자동 검색을 제안·적용했으며,
-                      사용자 편의성이 크게 향상되었다는 긍정적인 피드백을 받음.
-                    </p>
-                  </li>
-              
-                  <li>
-                    <strong>가독성 개선</strong>
-                    <ul>
-                      <li>전화번호 <strong>자동 하이픈 포맷</strong> 적용</li>
-                      <li>입력창과 결과 리스트에 <strong>동일한 포맷 기준</strong> 사용</li>
-                    </ul>
-                  </li>
-              
-                  <li>
-                    <strong>시인성 개선</strong>
-                    <ul>
-                      <li>주요 숫자 정보의 <strong>폰트 크기 및 가중치</strong> 조정</li>
-                      <li>빠른 정보 인지를 목표로 UI 튜닝</li>
-                    </ul>
-                  </li>
-                </ul>
-              
-                <p class="section-note" style="margin: 10px 0 0;">
-                  ※ 커뮤니케이션 원문 캡처 대신, 실사용 기준의 개선 항목 중심으로 정리했습니다.
-                </p>
-              </div>
-
-              <p class="stack-line">
-                <strong>기술/개념:</strong>
-                Python(UI/로직) · 입력 단계 최소화 · 처리 규칙 고정(로직화) · 로컬 배포/업데이트 · 피드백 기반 UX 개선
+              <ul class="project-points">
+                <li>전화번호 입력 즉시 자동 검색 UX 적용</li>
+                <li>전화번호 자동 하이픈 및 화면 전역 포맷 통일</li>
+                <li>운영 로그 기반 이슈 추적과 개선 배포 반복</li>
+              </ul>
+              <p class="stack-note">
+                Python · 입력 흐름 최소화 · 운영 피드백 기반 개선
               </p>
             </div>
 
-            <figure class="shot">
-              <div class="image-compare">
-                <div class="image-block">
-                  <img class="crm-fit crm-main" src="assets/before.png" alt="CRM UX 개선 전 화면" loading="lazy" />
-                  <p class="image-caption">실제 운영 화면 예시 (개선 전)</p>
+            <figure class="project-media">
+              <div class="media-grid">
+                <div class="media-box">
+                  <img src="assets/before.png" alt="CRM 개선 전 화면" loading="lazy" />
+                  <figcaption>개선 전</figcaption>
                 </div>
-                <div class="image-block">
-                  <img class="crm-fit crm-main" src="assets/after.png" alt="CRM UX 개선 후 화면" loading="lazy" />
-                  <p class="image-caption">UX 개선 적용 후 화면</p>
+                <div class="media-box">
+                  <img src="assets/after.png" alt="CRM 개선 후 화면" loading="lazy" />
+                  <figcaption>개선 후</figcaption>
                 </div>
               </div>
-              <div class="image-log">
-                <img class="crm-fit crm-log" src="assets/log.png" alt="CRM 운영 로그 출력 화면" loading="lazy" />
-                <p class="image-caption">운영 중 이슈 추적을 위한 로그 출력 예시</p>
-                <p class="section-note">
-                  로그 화면은 입력/처리 흐름을 확인하고, 운영 중 발생한 이슈를 재현·추적하기 위한 운영 보조 수단으로
-                  사용했습니다.
-                </p>
+              <div class="media-log">
+                <img src="assets/log.png" alt="CRM 운영 로그" loading="lazy" />
+                <p>운영 로그로 재현 가능한 디버깅 흐름 유지</p>
               </div>
             </figure>
           </article>
 
-          <!-- PC SPEC -->
-          <article class="card project-card featured project-secondary" id="project-pc">
-            <div>
-              <p class="project-kicker">PROJECT 02 · 실사용 납품</p>
-              <h3>2) 시스템 정보 수집 프로그램 (PC 사양 확인)</h3>
-
-              <p class="focus-copy">
-                <strong>한 줄 요약:</strong> 환경별 조회 실패를 줄이기 위해 다중 조회 + fallback 구조를 적용한 PC 사양 확인 도구를
-                개발했습니다.
-              </p>
-
+          <article class="project-panel accent">
+            <div class="project-info">
+              <p class="project-tag">PROJECT 02</p>
+              <h3>시스템 정보 수집 프로그램 (PC 사양 확인)</h3>
               <p>
-                <strong>문제 정의:</strong> PC 환경별 API 지원 차이로 인해 단일 수집 방식에서는 시스템 정보(CPU/GPU/RAM 등) 누락
-                가능성이 존재했습니다.
+                단일 API 실패로 정보가 누락되지 않도록 다중 수집 + fallback 경로를
+                적용해, 환경 편차에 대한 안정성을 높였습니다.
               </p>
-
-              <p>
-                <strong>설계 접근:</strong> 여러 수집 경로를 조합하고 실패 조건을 기준으로 대체 경로로 자동 전환되도록
-                <strong>fallback 구조</strong>를 설계했습니다. 예외 처리/로그를 포함해 유지보수 관점으로 구조화했습니다.
+              <ul class="project-points">
+                <li>GPU/CPU/PC 유형 조회 실패 시 대체 경로 자동 전환</li>
+                <li>예외 처리 및 로그를 통한 유지보수성 강화</li>
+                <li>배포 신뢰성 강화를 위한 코드 서명 적용</li>
+              </ul>
+              <p class="stack-note">
+                Python · Failure Handling · Fallback Architecture · Code Signing
               </p>
-
-              <p>
-                <strong>구현 및 결과:</strong> 다양한 환경에서 안정적으로 동작하는 형태로 배포했으며, 배포 신뢰성 강화를 위해
-                <strong>코드 서명</strong>을 적용했습니다. 프로그램 실행 화면은 당사와 저작권 범위 협의가 진행 중이라 현재
-                비공개 처리했습니다.
-                <span class="section-note">보호 강화를 위해 난독화/워터마킹을 단계적으로 적용 중입니다.</span>
-              </p>
-
-              <p class="stack-line">
-                <strong>기술/개념:</strong>
-                Python · 다중 수집 전략 · failure handling(fallback) · 예외 처리/로그 · 배포 신뢰성(코드 서명)
-              </p>
-
-              <!-- ✅ 여기에 Mermaid 다이어그램 삽입 -->
-              <div class="card diagram-card diagram-focus">
-                <h4 style="margin: 0 0 8px 0;">Fallback 구조도 (요약)</h4>
-                <div class="mermaid">
-flowchart LR
-  classDef module fill:#eaf5fb,stroke:#2f6f8a,stroke-width:1.5px,color:#1b3c4b;
-  classDef action fill:#ffffff,stroke:#738d9b,stroke-width:1px,color:#1d2f38;
-  classDef decision fill:#fff6e8,stroke:#c0792c,stroke-width:1px,color:#5f3d14;
-  classDef fallback fill:#fff1f1,stroke:#b44a4a,stroke-width:1px,stroke-dasharray:4 3,color:#612626;
-  classDef result fill:#eef8f1,stroke:#4d8a5c,stroke-width:1px,color:#21472a;
-
-  subgraph COLLECTOR["collector.py · 시스템 정보 수집"]
-    direction TB
-
-    GPU1["GPU 1차 조회<br/>(DXGI)"]:::action --> GPU_COND{"조회 성공 여부"}:::decision
-    GPU_COND -- "실패/비가용" --> GPU2["Fallback: WMI VideoController"]:::fallback
-    GPU_COND -- "성공" --> VRAM_COND{"VRAM > 1GB"}:::decision
-    GPU2 --> VRAM_COND
-    VRAM_COND -- "No" --> VRAM_SKIP["VRAM 표시 생략"]:::result
-    VRAM_COND -- "Yes" --> GPU_OK["GPU 정보 확정"]:::result
-
-    CPU1["CPU 1차 조회<br/>(WMI/Registry)"]:::action --> CPU_COND{"수집 성공 여부"}:::decision
-    CPU_COND -- "No" --> CPU2["Fallback: platform.processor"]:::fallback
-    CPU_COND -- "Yes" --> CPU_OK["CPU 정보 확정"]:::result
-    CPU2 --> CPU_OK
-
-    PC1["PC 유형 1차 분류<br/>(WMI PCSystemType/Ex)"]:::action --> PC_COND{"분류 성공 여부"}:::decision
-    PC_COND -- "No" --> PC2["Fallback: 유형 미확정"]:::fallback
-    PC_COND -- "Yes" --> PC_OK["PC 유형 확정"]:::result
-    PC2 --> PC_OK
-  end
-
-  subgraph CONTROLLER["controller.py · 실행 제어"]
-    direction TB
-    URL1["URL 유효성 검사"]:::action --> URL_COND{"유효한 URL"}:::decision
-    URL_COND -- "No" --> URL_ERR["오류 안내"]:::result
-    URL_COND -- "Yes" --> URL_OPEN{"브라우저 오픈 성공"}:::decision
-    URL_OPEN -- "No" --> URL2["Fallback: 클립보드 복사 안내"]:::fallback
-    URL_OPEN -- "Yes" --> URL_OK["오픈 완료"]:::result
-  end
-
-  class COLLECTOR module;
-  class CONTROLLER module;
-                </div>
-                <p class="section-note" style="margin-top: 10px;">
-                  ※ 회사명/외부 링크 등 민감 요소는 다이어그램에 포함하지 않는 방식으로 정리했습니다.
-                </p>
-              </div>
             </div>
 
-            <figure class="shot">
-              <p class="image-caption"><strong>실행 화면 비공개 안내:</strong> 프로그램 화면은 현재 저작권 범위 논의 중으로 미공개 상태입니다.</p>
-              <p class="section-note">
-                이 프로젝트는 실행 화면 대신 fallback 구조도 중심으로 설계 판단을 확인할 수 있도록 정리했습니다.
-              </p>
-              <img class="fit-contain code-sign-sub" src="assets/code_sign.png" alt="Windows 디지털 서명 확인 화면" loading="lazy" />
-              <figcaption class="image-caption">보조 자료: 배포 신뢰성 확보를 위한 코드 서명 적용 화면</figcaption>
-              <p class="section-note">
-                Mermaid 구조도와 함께 배포 단계에서의 검증 흐름을 보조하는 자료로 사용했습니다.
+            <figure class="project-media single">
+              <div class="media-box">
+                <img
+                  class="contain"
+                  src="assets/code_sign.png"
+                  alt="Windows 코드 서명 확인 화면"
+                  loading="lazy"
+                />
+                <figcaption>배포 신뢰성을 위한 코드 서명 적용</figcaption>
+              </div>
+              <p class="media-disclaimer">
+                실행 화면은 저작권 범위 협의 중으로 비공개 상태입니다.
               </p>
             </figure>
           </article>
         </div>
       </section>
 
-      <!-- APPROACH -->
-      <section class="section muted" id="approach">
+      <section class="section dark" id="principles">
         <div class="container">
-          <h2>설계 및 문제 해결 관점</h2>
-          <div class="highlight-grid">
-            <article class="metric-card">
-              <p class="metric-label">요청 정리</p>
-              <p class="metric-value">목표 중심</p>
-              <p>문제를 단정하기보다 요청과 목표를 먼저 정리하고, 구현 범위를 명확히 합니다.</p>
+          <div class="section-head">
+            <p class="kicker">DESIGN PRINCIPLES</p>
+            <h2>제가 구현 전에 먼저 고정하는 세 가지</h2>
+          </div>
+
+          <div class="principles-grid">
+            <article>
+              <h3>목표 고정</h3>
+              <p>요청 기능보다 운영 목표를 먼저 정리해, 구현 범위를 명확히 합니다.</p>
             </article>
-            <article class="metric-card">
-              <p class="metric-label">안정성</p>
-              <p class="metric-value">실패 전제</p>
-              <p>환경 차이와 예외를 기본 가정으로 두고, 실패 시 대체 경로로 전환되도록 설계합니다.</p>
+            <article>
+              <h3>실패 전제</h3>
+              <p>정상 동작보다 실패 시나리오를 우선 설계해 중단 리스크를 낮춥니다.</p>
             </article>
-            <article class="metric-card">
-              <p class="metric-label">유지보수</p>
-              <p class="metric-value">재현 우선</p>
-              <p>이슈는 재현 조건을 먼저 좁힌 뒤 수정 범위와 배포 단위를 결정합니다.</p>
+            <article>
+              <h3>재현 가능성</h3>
+              <p>문제 원인이 추적되도록 로그/흐름을 남겨 수정 속도를 확보합니다.</p>
             </article>
           </div>
         </div>
       </section>
 
-      <!-- STACK -->
       <section class="section" id="stack">
         <div class="container">
-          <h2>기술 역량</h2>
-          <div class="grid-2">
-            <article class="card">
+          <div class="section-head">
+            <p class="kicker">CAPABILITY</p>
+            <h2>Implementation + Reliability + Delivery</h2>
+          </div>
+
+          <div class="stack-grid">
+            <article>
               <h3>구현</h3>
-              <p>Python 기반 UI/로직 구현, 데이터 처리 로직 구성, 입력값 검증, 예외 처리</p>
+              <p>Python 기반 UI/로직, 입력 검증, 데이터 처리, 예외 처리</p>
             </article>
-            <article class="card">
+            <article>
               <h3>안정성 설계</h3>
-              <p>다중 수집 경로 구성, fallback 설계, 실패 조건 정의, 로그 기반 원인 추적</p>
+              <p>다중 수집 전략, fallback 경로, 실패 조건 정의</p>
             </article>
-            <article class="card">
-              <h3>배포/운영</h3>
-              <p>로컬 배포, 업데이트 반영, 운영 중 수정 배포 흐름 관리, 코드 서명 적용</p>
+            <article>
+              <h3>운영/배포</h3>
+              <p>로컬 배포, 업데이트 반영, 운영 로그 기반 수정 배포</p>
             </article>
-            <article class="card">
-              <h3>버전 관리</h3>
-              <p>Git 기반 변경 이력 관리, 릴리즈 단위 기록, 유지보수 대응</p>
+            <article>
+              <h3>협업</h3>
+              <p>변경 영향 범위 공유, 대안 제시, Git 기반 이력 관리</p>
             </article>
           </div>
         </div>
       </section>
 
-      <!-- WORK STYLE -->
-      <section class="section muted" id="collab">
-        <div class="container">
-          <h2>업무 스타일</h2>
-          <ul class="plain-list">
-            <li><strong>요청을 받을 때:</strong> “무엇을 만들까”보다 “어떤 목표를 달성해야 하나”를 먼저 정리합니다.</li>
-            <li><strong>변경이 생길 때:</strong> 영향 범위를 확인하고 선택지(그대로/대안/추가 작업)를 함께 공유합니다.</li>
-            <li><strong>이슈 대응:</strong> 재현 조건을 좁힌 뒤 수정 범위와 배포 단위를 결정합니다.</li>
-          </ul>
-        </div>
-      </section>
-
-      <!-- CONTACT -->
-      <section class="section" id="contact">
-        <div class="container contact-box">
-          <h2>Contact</h2>
-          <p>실사용 환경에서 발생하는 요구와 예외를 정리해, 안정적으로 운영되는 프로그램을 만드는 작업에 관심이 있습니다.</p>
-          <p>
-            GitHub:
-            <a href="https://github.com/Hyunseung-Nam" target="_blank" rel="noreferrer">github.com/Hyunseung-Nam</a>
-          </p>
-          <p>
-            Email:
-            <a href="mailto:namhyunseung.work@gmail.com">namhyunseung.work@gmail.com</a>
-          </p>
-          <p class="section-note">
-            ※ 고객/매장 정보 및 커뮤니케이션 원문은 비공개 원칙을 지키며, 결과와 개선 항목 중심으로만 공개합니다.
-          </p>
+      <section class="section contact" id="contact">
+        <div class="container contact-inner">
+          <div>
+            <p class="kicker">CONTACT</p>
+            <h2>운영 기준이 분명한 제품을 함께 만들고 싶습니다.</h2>
+            <p>
+              고객/매장 정보와 커뮤니케이션 원문은 비공개 원칙을 지키며,
+              결과와 개선 항목 중심으로만 공개합니다.
+            </p>
+          </div>
+          <div class="contact-links">
+            <a href="https://github.com/Hyunseung-Nam" target="_blank" rel="noreferrer">GitHub</a>
+            <a href="mailto:namhyunseung.work@gmail.com">Email</a>
+          </div>
         </div>
       </section>
     </main>
 
     <footer class="footer">
-      <div class="container footer-grid">
-        <p>© 2026 Hyunseung</p>
-        <a href="#top">맨 위로</a>
+      <div class="container footer-inner">
+        <p>© 2026 Hyunseung Nam</p>
+        <a href="#top">Top</a>
       </div>
     </footer>
   </body>
