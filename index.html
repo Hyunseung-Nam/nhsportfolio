@@ -37,7 +37,7 @@
     <main>
       <section class="hero">
         <div class="container hero-layout">
-          <div class="hero-copy">
+          <div class="hero-copy reveal">
             <p class="kicker">SHIPPED SYSTEMS · OPERATIONS-FIRST DESIGN</p>
             <h1>
               실사용 환경의 문제를 운영 가능한 제품으로 바꾸는
@@ -53,7 +53,7 @@
             </div>
           </div>
 
-          <aside class="hero-metrics" aria-label="핵심 지표">
+          <aside class="hero-metrics reveal" aria-label="핵심 지표">
             <article class="metric-card delay-1">
               <p>실사용 납품</p>
               <strong>프로젝트 2건</strong>
@@ -75,12 +75,12 @@
 
       <section class="section" id="work">
         <div class="container">
-          <div class="section-head">
+          <div class="section-head reveal">
             <p class="kicker">SELECTED WORK</p>
             <h2>읽는 포트폴리오가 아닌, 동작하는 결과 중심</h2>
           </div>
 
-          <article class="project-panel">
+          <article class="project-panel reveal">
             <div class="project-info">
               <p class="project-tag">PROJECT 01</p>
               <h3>매장 운영 CRM 시스템 (포인트 관리)</h3>
@@ -116,7 +116,7 @@
             </figure>
           </article>
 
-          <article class="project-panel accent">
+          <article class="project-panel accent reveal">
             <div class="project-info">
               <p class="project-tag">PROJECT 02</p>
               <h3>시스템 정보 수집 프로그램 (PC 사양 확인)</h3>
@@ -154,21 +154,21 @@
 
       <section class="section dark" id="principles">
         <div class="container">
-          <div class="section-head">
+          <div class="section-head reveal">
             <p class="kicker">DESIGN PRINCIPLES</p>
             <h2>제가 구현 전에 먼저 고정하는 세 가지</h2>
           </div>
 
           <div class="principles-grid">
-            <article>
+            <article class="reveal">
               <h3>목표 고정</h3>
               <p>요청 기능보다 운영 목표를 먼저 정리해, 구현 범위를 명확히 합니다.</p>
             </article>
-            <article>
+            <article class="reveal">
               <h3>실패 전제</h3>
               <p>정상 동작뿐 아니라 실패 상황을 먼저 고려해 각 단계에서 문제 원인을 확인할 수 있도록 설계했습니다.</p>
             </article>
-            <article>
+            <article class="reveal">
               <h3>재현 가능성</h3>
               <p>문제 원인이 추적되도록 로그/흐름을 남겨 수정 속도를 확보합니다.</p>
             </article>
@@ -178,25 +178,25 @@
 
       <section class="section" id="stack">
         <div class="container">
-          <div class="section-head">
+          <div class="section-head reveal">
             <p class="kicker">CAPABILITY</p>
             <h2>Implementation + Reliability + Delivery</h2>
           </div>
 
           <div class="stack-grid">
-            <article>
+            <article class="reveal">
               <h3>구현</h3>
               <p>Python 기반 UI/로직, 입력 검증, 데이터 처리, 예외 처리</p>
             </article>
-            <article>
+            <article class="reveal">
               <h3>안정성 설계</h3>
               <p>다중 수집 전략, fallback 경로, 실패 조건 정의</p>
             </article>
-            <article>
+            <article class="reveal">
               <h3>운영/배포</h3>
               <p>로컬 배포, 업데이트 반영, 운영 로그 기반 수정 배포</p>
             </article>
-            <article>
+            <article class="reveal">
               <h3>협업</h3>
               <p>변경 영향 범위 공유, 대안 제시, Git 기반 이력 관리</p>
             </article>
@@ -205,7 +205,7 @@
       </section>
 
       <section class="section contact" id="contact">
-        <div class="container contact-inner">
+        <div class="container contact-inner reveal">
           <div>
             <p class="kicker">CONTACT</p>
             <h2>운영 기준이 분명한 제품을 함께 만들고 싶습니다.</h2>
@@ -228,5 +228,30 @@
         <a href="#top">Top</a>
       </div>
     </footer>
+
+    <script>
+      (() => {
+        const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (reduceMotion) return;
+
+        document.documentElement.classList.add("js-motion");
+        const revealTargets = document.querySelectorAll(".reveal");
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            });
+          },
+          { threshold: 0.14, rootMargin: "0px 0px -8% 0px" },
+        );
+
+        revealTargets.forEach((el, index) => {
+          el.style.setProperty("--reveal-delay", `${Math.min(index * 32, 220)}ms`);
+          observer.observe(el);
+        });
+      })();
+    </script>
   </body>
 </html>
