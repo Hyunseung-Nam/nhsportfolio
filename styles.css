@@ -13,6 +13,8 @@
   --cta-hover-start: #ff3f84;
   --cta-hover-end: #6e4dff;
   --max: 1120px;
+  --mx: 0;
+  --my: 0;
 }
 
 * {
@@ -58,6 +60,52 @@ ul {
   filter: blur(56px);
   opacity: 0.48;
   will-change: transform;
+}
+
+.bg-tech {
+  position: fixed;
+  inset: -12% -10% -10%;
+  z-index: -4;
+  pointer-events: none;
+  overflow: hidden;
+  perspective: 1200px;
+}
+
+.tech-layer {
+  position: absolute;
+  inset: 0;
+  transform-origin: center;
+  will-change: transform, opacity;
+}
+
+.tech-grid {
+  background:
+    linear-gradient(rgba(0, 212, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124, 92, 255, 0.06) 1px, transparent 1px);
+  background-size: 72px 72px, 72px 72px;
+  mask-image: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.4) 20%, rgba(0, 0, 0, 0.85) 58%, transparent 100%);
+  transform: rotateX(62deg) translate3d(calc(var(--mx) * -10px), calc(var(--my) * -8px), 0) scale(1.45);
+  opacity: 0.62;
+  animation: gridSlide 36s linear infinite;
+}
+
+.tech-beam {
+  background:
+    radial-gradient(circle at 18% 26%, rgba(0, 212, 255, 0.14) 0%, transparent 44%),
+    radial-gradient(circle at 78% 34%, rgba(124, 92, 255, 0.2) 0%, transparent 40%),
+    radial-gradient(circle at 60% 78%, rgba(255, 77, 141, 0.12) 0%, transparent 38%);
+  transform: translate3d(calc(var(--mx) * 14px), calc(var(--my) * 10px), 0);
+  opacity: 0.75;
+  animation: beamPulse 18s ease-in-out infinite alternate;
+}
+
+.tech-dots {
+  background-image: radial-gradient(circle, rgba(184, 193, 217, 0.18) 1.2px, transparent 1.2px);
+  background-size: 22px 22px;
+  mask-image: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.5) 8%, rgba(0, 0, 0, 0.95) 58%, transparent 92%);
+  transform: translate3d(calc(var(--mx) * -6px), calc(var(--my) * -5px), 0);
+  opacity: 0.22;
+  animation: dotsDrift 42s linear infinite;
 }
 
 .orb-a {
@@ -130,7 +178,7 @@ ul {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(26, 35, 64, 0.35) 0%, rgba(11, 16, 32, 0) 55%);
+  background: linear-gradient(180deg, rgba(26, 35, 64, 0.42) 0%, rgba(11, 16, 32, 0) 58%);
   pointer-events: none;
 }
 
@@ -617,6 +665,38 @@ html.js-motion .reveal.is-visible {
   }
 }
 
+@keyframes gridSlide {
+  from {
+    background-position: 0 0, 0 0;
+  }
+
+  to {
+    background-position: 0 72px, 72px 0;
+  }
+}
+
+@keyframes beamPulse {
+  from {
+    opacity: 0.56;
+    filter: saturate(95%);
+  }
+
+  to {
+    opacity: 0.82;
+    filter: saturate(118%);
+  }
+}
+
+@keyframes dotsDrift {
+  from {
+    transform: translate3d(calc(var(--mx) * -6px), calc(var(--my) * -5px), 0);
+  }
+
+  to {
+    transform: translate3d(calc(var(--mx) * -6px + 14px), calc(var(--my) * -5px + 10px), 0);
+  }
+}
+
 @media (max-width: 1024px) {
   .hero-layout,
   .project-panel {
@@ -649,6 +729,16 @@ html.js-motion .reveal.is-visible {
     padding-top: 3.3rem;
   }
 
+  .bg-tech {
+    inset: -20% -24% -16%;
+  }
+
+  .tech-grid {
+    background-size: 52px 52px, 52px 52px;
+    transform: rotateX(66deg) scale(1.58);
+    opacity: 0.46;
+  }
+
   .media-grid,
   .stack-grid {
     grid-template-columns: 1fr;
@@ -672,5 +762,9 @@ html.js-motion .reveal.is-visible {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+
+  .bg-tech {
+    opacity: 0.42;
   }
 }

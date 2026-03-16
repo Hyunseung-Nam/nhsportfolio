@@ -19,6 +19,11 @@
   <body>
     <div class="bg-orb orb-a" aria-hidden="true"></div>
     <div class="bg-orb orb-b" aria-hidden="true"></div>
+    <div class="bg-tech" aria-hidden="true">
+      <div class="tech-layer tech-grid"></div>
+      <div class="tech-layer tech-beam"></div>
+      <div class="tech-layer tech-dots"></div>
+    </div>
 
     <header class="topbar" id="top">
       <div class="container topbar-inner">
@@ -235,6 +240,7 @@
         if (reduceMotion) return;
 
         document.documentElement.classList.add("js-motion");
+        const root = document.documentElement;
         const revealTargets = document.querySelectorAll(".reveal");
         const observer = new IntersectionObserver(
           (entries) => {
@@ -251,6 +257,34 @@
           el.style.setProperty("--reveal-delay", `${Math.min(index * 32, 220)}ms`);
           observer.observe(el);
         });
+
+        let tx = 0;
+        let ty = 0;
+        let cx = 0;
+        let cy = 0;
+        window.addEventListener(
+          "pointermove",
+          (event) => {
+            const x = event.clientX / window.innerWidth - 0.5;
+            const y = event.clientY / window.innerHeight - 0.5;
+            tx = x * 2;
+            ty = y * 2;
+          },
+          { passive: true },
+        );
+        window.addEventListener("pointerleave", () => {
+          tx = 0;
+          ty = 0;
+        });
+
+        const drift = () => {
+          cx += (tx - cx) * 0.06;
+          cy += (ty - cy) * 0.06;
+          root.style.setProperty("--mx", cx.toFixed(4));
+          root.style.setProperty("--my", cy.toFixed(4));
+          requestAnimationFrame(drift);
+        };
+        drift();
       })();
     </script>
   </body>
