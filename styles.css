@@ -970,6 +970,17 @@ html.js-motion .reveal.is-visible {
   padding: 4.5rem 0 0.5rem;
 }
 
+/* === Page Transition Overlay === */
+.page-overlay {
+  position: fixed;
+  inset: 0;
+  background: #0b1020;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

@@ -55,7 +55,6 @@
               다양한 시스템을 설계·개발하고 있습니다.
             </p>
             <div class="hero-actions">
-              <a class="btn btn-solid" href="projects.html">프로젝트 보기</a>
               <a class="btn btn-ghost" href="#contact">협업 문의</a>
             </div>
           </div>
@@ -186,6 +185,23 @@
 
     <script>
       (() => {
+        // Page transition
+        const overlay = document.createElement("div");
+        overlay.className = "page-overlay";
+        document.body.appendChild(overlay);
+        requestAnimationFrame(() => requestAnimationFrame(() => { overlay.style.opacity = "0"; }));
+
+        document.querySelectorAll("a[href]").forEach((link) => {
+          const href = link.getAttribute("href");
+          if (!href || href.startsWith("#") || href.startsWith("mailto") || href.startsWith("http")) return;
+          link.addEventListener("click", (e) => {
+            e.preventDefault();
+            overlay.style.transition = "opacity 0.3s ease";
+            overlay.style.opacity = "1";
+            setTimeout(() => { window.location.href = href; }, 300);
+          });
+        });
+
         const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
         // Typewriter
