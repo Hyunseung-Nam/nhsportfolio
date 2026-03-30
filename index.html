@@ -27,10 +27,10 @@
 
     <header class="topbar" id="top">
       <div class="container topbar-inner">
-        <a class="brand" href="#top">HN</a>
+        <a class="brand" href="index.html">HN</a>
         <nav aria-label="주요 섹션">
           <ul class="nav-list">
-            <li><a href="#work">Work</a></li>
+            <li><a href="projects.html">Projects</a></li>
             <li><a href="#principles">Principles</a></li>
             <li><a href="#stack">Stack</a></li>
             <li><a href="#contact">Contact</a></li>
@@ -48,12 +48,14 @@
               실사용 환경의 문제를 운영 가능한 제품으로 바꾸는
               <span>백엔드/자동화 개발자 남현승입니다.</span>
             </h1>
+            <p class="hero-techline" id="techline" aria-live="polite"></p>
             <p class="hero-desc">
-              코인 세탁소 CRM과 PC 사양 수집 도구를 직접 납품했고,
-              배포 이후 운영 피드백 반영과 안정화까지 책임졌습니다.
+              코인 세탁소 CRM, PC 사양 수집 도구를 직접 납품했고,
+              현재 ERP 프로토타입·실험실 모니터링·행동 관리 앱 등
+              다양한 시스템을 설계·개발하고 있습니다.
             </p>
             <div class="hero-actions">
-              <a class="btn btn-solid" href="#work">프로젝트 보기</a>
+              <a class="btn btn-solid" href="projects.html">프로젝트 보기</a>
               <a class="btn btn-ghost" href="#contact">협업 문의</a>
             </div>
           </div>
@@ -65,9 +67,9 @@
               <span>운영 반영 업데이트까지 수행</span>
             </article>
             <article class="metric-card delay-2">
-              <p>CRM UX 개선</p>
-              <strong>검색 인터랙션 단순화</strong>
-              <span>전화번호 입력 즉시 자동 검색 적용</span>
+              <p>현재 개발중</p>
+              <strong>프로젝트 2건</strong>
+              <span>LabGuard · Behavior-OS</span>
             </article>
             <article class="metric-card delay-3">
               <p>안정성 설계</p>
@@ -80,80 +82,28 @@
 
       <section class="section" id="work">
         <div class="container">
-          <div class="section-head reveal">
-            <p class="kicker">SELECTED WORK</p>
-            <h2>읽는 포트폴리오가 아닌, 동작하는 결과 중심</h2>
+          <div class="teaser-inner reveal">
+            <div>
+              <p class="kicker">SELECTED WORK</p>
+              <h2>납품부터 개발중까지, 다양한 도메인의 프로젝트</h2>
+              <p>CRM · ERP · 실험실 모니터링 · 모바일 행동 관리 앱 · 개인 제어판</p>
+              <div class="teaser-stat-row">
+                <div class="teaser-stat">
+                  <strong>2</strong>
+                  <span>Shipped</span>
+                </div>
+                <div class="teaser-stat">
+                  <strong>2</strong>
+                  <span>In Progress</span>
+                </div>
+                <div class="teaser-stat">
+                  <strong>2</strong>
+                  <span>Personal / Prototype</span>
+                </div>
+              </div>
+            </div>
+            <a class="btn btn-solid" href="projects.html">전체 프로젝트 보기 →</a>
           </div>
-
-          <article class="project-panel reveal">
-            <div class="project-info">
-              <p class="project-tag">PROJECT 01</p>
-              <h3>매장 운영 CRM 시스템 (포인트 관리)</h3>
-              <p>
-                운영자의 입력 부담을 줄이고 포인트 지급 기준을 코드 로직으로 고정해,
-                사용자 판단 편차를 줄이는 데 집중했습니다.
-              </p>
-              <ul class="project-points">
-                <li>전화번호 입력 즉시 자동 검색 UX 적용</li>
-                <li>전화번호 자동 하이픈 및 화면 전역 포맷 통일</li>
-                <li>운영 로그 기반 이슈 추적과 개선 배포 반복</li>
-              </ul>
-              <p class="stack-note">
-                Python · 입력 흐름 최소화 · 운영 피드백 기반 개선
-              </p>
-            </div>
-
-            <figure class="project-media">
-              <div class="media-grid">
-                <div class="media-box">
-                  <img src="assets/before.png" alt="CRM 개선 전 화면" loading="lazy" />
-                  <figcaption>개선 전</figcaption>
-                </div>
-                <div class="media-box">
-                  <img src="assets/after.png" alt="CRM 개선 후 화면" loading="lazy" />
-                  <figcaption>개선 후</figcaption>
-                </div>
-              </div>
-              <div class="media-log">
-                <img src="assets/log.png" alt="CRM 운영 로그" loading="lazy" />
-                <p>운영 로그로 재현 가능한 디버깅 흐름 유지</p>
-              </div>
-            </figure>
-          </article>
-
-          <article class="project-panel accent reveal">
-            <div class="project-info">
-              <p class="project-tag">PROJECT 02</p>
-              <h3>시스템 정보 수집 프로그램 (PC 사양 확인)</h3>
-              <p>
-                단일 API 실패로 정보가 누락되지 않도록 다중 수집 + fallback 경로를
-                적용해, 환경 편차에 대한 안정성을 높였습니다.
-              </p>
-              <ul class="project-points">
-                <li>GPU/CPU/PC 유형 조회 실패 시 대체 경로 자동 전환</li>
-                <li>예외 처리 및 로그를 통한 유지보수성 강화</li>
-                <li>배포 신뢰성 강화를 위한 코드 서명 적용</li>
-              </ul>
-              <p class="stack-note">
-                Python · Failure Handling · Fallback Architecture · Code Signing
-              </p>
-            </div>
-
-            <figure class="project-media single">
-              <div class="media-box">
-                <img
-                  class="contain"
-                  src="assets/code_sign.png"
-                  alt="Windows 코드 서명 확인 화면"
-                  loading="lazy"
-                />
-                <figcaption>배포 신뢰성을 위한 코드 서명 적용</figcaption>
-              </div>
-              <p class="media-disclaimer">
-                실행 화면은 저작권 범위 협의 중으로 비공개 상태입니다.
-              </p>
-            </figure>
-          </article>
         </div>
       </section>
 
@@ -191,15 +141,15 @@
           <div class="stack-grid">
             <article class="reveal">
               <h3>구현</h3>
-              <p>Python 기반 UI/로직, 입력 검증, 데이터 처리, 예외 처리</p>
+              <p>Python · Java · Dart · JavaScript 기반 UI/로직, 입력 검증, 데이터 처리, 예외 처리</p>
             </article>
             <article class="reveal">
               <h3>안정성 설계</h3>
-              <p>다중 수집 전략, fallback 경로, 실패 조건 정의</p>
+              <p>다중 수집 전략, fallback 경로, 실패 조건 정의, 백그라운드 동작 보장</p>
             </article>
             <article class="reveal">
               <h3>운영/배포</h3>
-              <p>로컬 배포, 업데이트 반영, 운영 로그 기반 수정 배포</p>
+              <p>로컬 배포, 업데이트 반영, 운영 로그 기반 수정 배포, Docker, Vercel</p>
             </article>
             <article class="reveal">
               <h3>협업</h3>
@@ -237,6 +187,26 @@
     <script>
       (() => {
         const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        // Typewriter
+        if (!reduceMotion) {
+          const el = document.getElementById("techline");
+          const text = "Backend · Automation · Mobile · Desktop · Full-Stack";
+          let i = 0;
+          const cursor = document.createElement("span");
+          cursor.className = "typewriter-cursor";
+          el.appendChild(cursor);
+          const type = () => {
+            if (i < text.length) {
+              el.insertBefore(document.createTextNode(text[i++]), cursor);
+              setTimeout(type, i < 10 ? 60 : 38);
+            } else {
+              setTimeout(() => cursor.remove(), 1800);
+            }
+          };
+          setTimeout(type, 900);
+        }
+
         if (reduceMotion) return;
 
         document.documentElement.classList.add("js-motion");
@@ -258,24 +228,12 @@
           observer.observe(el);
         });
 
-        let tx = 0;
-        let ty = 0;
-        let cx = 0;
-        let cy = 0;
-        window.addEventListener(
-          "pointermove",
-          (event) => {
-            const x = event.clientX / window.innerWidth - 0.5;
-            const y = event.clientY / window.innerHeight - 0.5;
-            tx = x * 2;
-            ty = y * 2;
-          },
-          { passive: true },
-        );
-        window.addEventListener("pointerleave", () => {
-          tx = 0;
-          ty = 0;
-        });
+        let tx = 0, ty = 0, cx = 0, cy = 0;
+        window.addEventListener("pointermove", (e) => {
+          tx = (e.clientX / window.innerWidth - 0.5) * 2;
+          ty = (e.clientY / window.innerHeight - 0.5) * 2;
+        }, { passive: true });
+        window.addEventListener("pointerleave", () => { tx = 0; ty = 0; });
 
         const drift = () => {
           cx += (tx - cx) * 0.06;

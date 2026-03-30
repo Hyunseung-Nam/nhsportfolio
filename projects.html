@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects | Hyunseung Nam</title>
+    <meta
+      name="description"
+      content="남현승의 프로젝트 포트폴리오 — 납품 시스템, 개발중인 앱, 개인 도구까지"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg-orb orb-a" aria-hidden="true"></div>
+    <div class="bg-orb orb-b" aria-hidden="true"></div>
+    <div class="bg-tech" aria-hidden="true">
+      <div class="tech-layer tech-grid"></div>
+      <div class="tech-layer tech-beam"></div>
+      <div class="tech-layer tech-dots"></div>
+    </div>
+
+    <header class="topbar" id="top">
+      <div class="container topbar-inner">
+        <a class="brand" href="index.html">HN</a>
+        <nav aria-label="주요 섹션">
+          <ul class="nav-list">
+            <li><a href="projects.html" style="color: var(--text-primary);">Projects</a></li>
+            <li><a href="index.html#principles">Principles</a></li>
+            <li><a href="index.html#stack">Stack</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="projects-hero">
+        <div class="container">
+          <div class="hero-copy reveal">
+            <p class="kicker">ALL PROJECTS</p>
+            <h1 style="font-size: clamp(1.8rem, 4.5vw, 2.8rem);">
+              납품부터 개발중까지,<br>
+              <span>6개 프로젝트의 기록</span>
+            </h1>
+          </div>
+
+          <div class="filter-tabs reveal" role="group" aria-label="프로젝트 필터">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="shipped">Shipped</button>
+            <button class="filter-btn" data-filter="building">In Progress</button>
+            <button class="filter-btn" data-filter="personal">Personal</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" style="padding-top: 0.5rem;">
+        <div class="container">
+
+          <!-- PROJECT 01 · CRM -->
+          <article class="project-panel reveal" data-category="shipped">
+            <div class="project-info">
+              <div class="project-tag-row">
+                <p class="project-tag">PROJECT 01</p>
+                <span class="badge badge-shipped">SHIPPED</span>
+              </div>
+              <h3>매장 운영 CRM 시스템 (포인트 관리)</h3>
+              <p>
+                운영자의 입력 부담을 줄이고 포인트 지급 기준을 코드 로직으로 고정해,
+                사용자 판단 편차를 줄이는 데 집중했습니다.
+              </p>
+              <ul class="project-points">
+                <li>전화번호 입력 즉시 자동 검색 UX 적용</li>
+                <li>전화번호 자동 하이픈 및 화면 전역 포맷 통일</li>
+                <li>운영 로그 기반 이슈 추적과 개선 배포 반복</li>
+              </ul>
+              <p class="stack-note">Python · 입력 흐름 최소화 · 운영 피드백 기반 개선</p>
+            </div>
+
+            <figure class="project-media">
+              <div class="media-grid">
+                <div class="media-box">
+                  <img src="assets/before.png" alt="CRM 개선 전 화면" loading="lazy" />
+                  <figcaption>개선 전</figcaption>
+                </div>
+                <div class="media-box">
+                  <img src="assets/after.png" alt="CRM 개선 후 화면" loading="lazy" />
+                  <figcaption>개선 후</figcaption>
+                </div>
+              </div>
+              <div class="media-log">
+                <img src="assets/log.png" alt="CRM 운영 로그" loading="lazy" />
+                <p>운영 로그로 재현 가능한 디버깅 흐름 유지</p>
+              </div>
+            </figure>
+          </article>
+
+          <!-- PROJECT 02 · PC Spec -->
+          <article class="project-panel accent reveal" data-category="shipped">
+            <div class="project-info">
+              <div class="project-tag-row">
+                <p class="project-tag">PROJECT 02</p>
+                <span class="badge badge-shipped">SHIPPED</span>
+              </div>
+              <h3>시스템 정보 수집 프로그램 (PC 사양 확인)</h3>
+              <p>
+                단일 API 실패로 정보가 누락되지 않도록 다중 수집 + fallback 경로를
+                적용해, 환경 편차에 대한 안정성을 높였습니다.
+              </p>
+              <ul class="project-points">
+                <li>GPU/CPU/PC 유형 조회 실패 시 대체 경로 자동 전환</li>
+                <li>예외 처리 및 로그를 통한 유지보수성 강화</li>
+                <li>배포 신뢰성 강화를 위한 코드 서명 적용</li>
+              </ul>
+              <p class="stack-note">Python · Failure Handling · Fallback Architecture · Code Signing</p>
+            </div>
+
+            <figure class="project-media single">
+              <div class="media-box">
+                <img
+                  class="contain"
+                  src="assets/code_sign.png"
+                  alt="Windows 코드 서명 확인 화면"
+                  loading="lazy"
+                />
+                <figcaption>배포 신뢰성을 위한 코드 서명 적용</figcaption>
+              </div>
+              <p class="media-disclaimer">실행 화면은 저작권 범위 협의 중으로 비공개 상태입니다.</p>
+            </figure>
+          </article>
+
+          <!-- PROJECT 03 · Micro ERP -->
+          <article class="project-panel reveal" data-category="personal">
+            <div class="project-info">
+              <div class="project-tag-row">
+                <p class="project-tag">PROJECT 03</p>
+                <span class="badge badge-prototype">PROTOTYPE</span>
+              </div>
+              <h3>Micro ERP System</h3>
+              <p>
+                소규모 사업장을 위한 재고 관리 ERP 프로토타입입니다.
+                Python 데스크톱 앱과 Java 백엔드를 분리한 하이브리드 아키텍처로 설계했습니다.
+              </p>
+              <ul class="project-points">
+                <li>입고 · 출고 · 발주 · 반품 · 이동 워크플로우 구현</li>
+                <li>안전재고 미달 시 자동 경고 및 권장 발주량 계산</li>
+                <li>업종별 프로필 (병원 · 도매 · 쇼핑몰 등) 지원</li>
+                <li>로컬 전용 · API 연동 두 가지 실행 모드</li>
+              </ul>
+              <p class="stack-note">Python · PySide6 · Java · Spring Boot · MySQL</p>
+            </div>
+
+            <figure class="project-media">
+              <div class="media-box">
+                <img src="assets/micro_erp.png" alt="Micro ERP 메인 화면" loading="lazy" />
+                <figcaption>재고 테이블과 업무 버튼 레이아웃</figcaption>
+              </div>
+            </figure>
+          </article>
+
+          <!-- PROJECT 04 · Control Panel -->
+          <article class="project-panel accent reveal" data-category="personal">
+            <div class="project-info">
+              <div class="project-tag-row">
+                <p class="project-tag">PROJECT 04</p>
+                <span class="badge badge-personal">PERSONAL</span>
+              </div>
+              <h3>Personal Semester Control System</h3>
+              <p>
+                학기 중 집중력 분산을 막기 위해 직접 설계한 개인 제어판입니다.
+                주간 Top3 목표, 균형 패널, 오늘 집중 행동을 단일 화면으로 관리합니다.
+              </p>
+              <ul class="project-points">
+                <li>전공 · 사이드 프로젝트 · 운동 등 영역별 월간 균형 추적</li>
+                <li>오늘의 우선 행동과 하지 말아야 할 것을 배너로 고정</li>
+                <li>Supabase 기반 클라우드 동기화 + 로컬 fallback</li>
+                <li>Electron으로 데스크톱 앱 및 웹 동시 배포</li>
+              </ul>
+              <p class="stack-note">JavaScript · Electron · Supabase · HTML / CSS</p>
+            </div>
+
+            <figure class="project-media">
+              <div class="media-box">
+                <img src="assets/control_panel.png" alt="Control Panel 메인 화면" loading="lazy" />
+                <figcaption>학기 목표 제어판 메인 화면</figcaption>
+              </div>
+            </figure>
+          </article>
+
+          <!-- PROJECT 05 · LabGuard -->
+          <article class="project-panel reveal" data-category="building">
+            <div class="project-info">
+              <div class="project-tag-row">
+                <p class="project-tag">PROJECT 05</p>
+                <span class="badge badge-wip">IN PROGRESS</span>
+              </div>
+              <h3>LabGuard — 실험실 장비 모니터링 시스템</h3>
+              <p>
+                실험실 장비의 이상 상태를 실시간으로 감지하고 알림을 전달하는
+                풀스택 모니터링 시스템입니다. TimescaleDB로 시계열 데이터를 처리합니다.
+              </p>
+              <ul class="project-points">
+                <li>장비 등록 · 상태 카드 · 이상 알림 타임라인 대시보드</li>
+                <li>Severity 레벨별 알림 분류 및 색상 구분</li>
+                <li>FastAPI 비동기 백엔드 + TimescaleDB 시계열 저장</li>
+                <li>Docker Compose 기반 배포 구성</li>
+              </ul>
+              <p class="stack-note">React · Vite · Tailwind CSS · FastAPI · TimescaleDB · Docker</p>
+            </div>
+
+            <figure class="project-media">
+              <div class="project-placeholder">
+                <div class="placeholder-inner">
+                  <p class="placeholder-label">개발 진행 중</p>
+                  <div class="tech-chips">
+                    <span class="tech-chip">React</span>
+                    <span class="tech-chip">FastAPI</span>
+                    <span class="tech-chip">TimescaleDB</span>
+                    <span class="tech-chip">Docker</span>
+                    <span class="tech-chip">Tailwind CSS</span>
+                  </div>
+                </div>
+              </div>
+            </figure>
+          </article>
+
+          <!-- PROJECT 06 · Behavior-OS -->
+          <article class="project-panel accent reveal" data-category="building">
+            <div class="project-info">
+              <div class="project-tag-row">
+                <p class="project-tag">PROJECT 06</p>
+                <span class="badge badge-wip">IN PROGRESS</span>
+              </div>
+              <h3>Behavior-OS — 행동 트리거 알림 앱</h3>
+              <p>
+                해야 할 행동을 "지금 당장 하나"만 화면에 띄우는 모바일 앱입니다.
+                다단계 알림과 백그라운드 Nagging으로 행동 실행률을 높입니다.
+              </p>
+              <ul class="project-points">
+                <li>T-30분 인지 → T-10분 준비 → 정각 실행 3단계 알림</li>
+                <li>5분 간격 Nagging 알림 × 최대 12회</li>
+                <li>Workmanager 기반 백그라운드 동작 (오프라인 완전 지원)</li>
+                <li>Drift (SQLite) 로컬 저장 + Supabase 원격 백업</li>
+              </ul>
+              <p class="stack-note">Flutter · Dart · Riverpod · Supabase · Drift</p>
+            </div>
+
+            <figure class="project-media">
+              <div class="project-placeholder">
+                <div class="placeholder-inner">
+                  <p class="placeholder-label">개발 진행 중</p>
+                  <div class="tech-chips">
+                    <span class="tech-chip">Flutter</span>
+                    <span class="tech-chip">Dart</span>
+                    <span class="tech-chip">Riverpod</span>
+                    <span class="tech-chip">Supabase</span>
+                    <span class="tech-chip">Drift</span>
+                  </div>
+                </div>
+              </div>
+            </figure>
+          </article>
+
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <p>© 2026 Hyunseung Nam</p>
+        <a href="#top">Top</a>
+      </div>
+    </footer>
+
+    <script>
+      (() => {
+        const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        // Filter tabs
+        const btns = document.querySelectorAll(".filter-btn");
+        const panels = document.querySelectorAll(".project-panel[data-category]");
+
+        btns.forEach((btn) => {
+          btn.addEventListener("click", () => {
+            btns.forEach((b) => b.classList.remove("active"));
+            btn.classList.add("active");
+
+            const filter = btn.dataset.filter;
+            panels.forEach((panel) => {
+              if (filter === "all" || panel.dataset.category === filter) {
+                panel.removeAttribute("hidden");
+              } else {
+                panel.setAttribute("hidden", "");
+              }
+            });
+          });
+        });
+
+        if (reduceMotion) return;
+
+        document.documentElement.classList.add("js-motion");
+        const root = document.documentElement;
+        const revealTargets = document.querySelectorAll(".reveal");
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            });
+          },
+          { threshold: 0.1, rootMargin: "0px 0px -6% 0px" },
+        );
+
+        revealTargets.forEach((el, index) => {
+          el.style.setProperty("--reveal-delay", `${Math.min(index * 40, 200)}ms`);
+          observer.observe(el);
+        });
+
+        let tx = 0, ty = 0, cx = 0, cy = 0;
+        window.addEventListener("pointermove", (e) => {
+          tx = (e.clientX / window.innerWidth - 0.5) * 2;
+          ty = (e.clientY / window.innerHeight - 0.5) * 2;
+        }, { passive: true });
+        window.addEventListener("pointerleave", () => { tx = 0; ty = 0; });
+
+        const drift = () => {
+          cx += (tx - cx) * 0.06;
+          cy += (ty - cy) * 0.06;
+          root.style.setProperty("--mx", cx.toFixed(4));
+          root.style.setProperty("--my", cy.toFixed(4));
+          requestAnimationFrame(drift);
+        };
+        drift();
+      })();
+    </script>
+  </body>
+</html>
