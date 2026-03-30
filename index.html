@@ -27,7 +27,7 @@
 
     <header class="topbar" id="top">
       <div class="container topbar-inner">
-        <a class="brand" href="index.html">HN</a>
+        <a class="brand" href="index.html">남현승</a>
         <nav aria-label="주요 섹션">
           <ul class="nav-list">
             <li><a href="projects.html">Projects</a></li>
@@ -45,8 +45,8 @@
           <div class="hero-copy reveal">
             <p class="kicker">SHIPPED SYSTEMS · OPERATIONS-FIRST DESIGN</p>
             <h1>
-              현장의 문제를
-              <span>코드로 푸는 남현승입니다.</span>
+              문제를 발견하면,<br>
+              <span>코드로 답합니다.</span>
             </h1>
             <p class="hero-techline" id="techline" aria-live="polite"></p>
             <p class="hero-desc">
@@ -204,7 +204,7 @@
 
         const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-        // Typewriter (rotating)
+        // Typewriter (accumulating)
         if (!reduceMotion) {
           const el = document.getElementById("techline");
           const phrases = [
@@ -212,46 +212,31 @@
             "FastAPI · Spring · Flutter · React",
             "Docker · Supabase · MySQL · TimescaleDB",
           ];
-          let pi = 0;
 
           const cursor = document.createElement("span");
           cursor.className = "typewriter-cursor";
+          el.appendChild(cursor);
 
           const typePhrase = (text, cb) => {
-            el.textContent = "";
-            el.appendChild(cursor);
             let i = 0;
             const type = () => {
               if (i < text.length) {
                 el.insertBefore(document.createTextNode(text[i++]), cursor);
                 setTimeout(type, 38);
               } else {
-                setTimeout(cb, 1400);
+                setTimeout(cb, 700);
               }
             };
             type();
           };
 
-          const erasePhrase = (cb) => {
-            const erase = () => {
-              const nodes = [...el.childNodes].filter((n) => n !== cursor);
-              if (nodes.length === 0) { cb(); return; }
-              nodes[nodes.length - 1].remove();
-              setTimeout(erase, 18);
-            };
-            erase();
+          const typeAll = (pi) => {
+            if (pi >= phrases.length) { cursor.remove(); return; }
+            if (pi > 0) el.insertBefore(document.createElement("br"), cursor);
+            typePhrase(phrases[pi], () => typeAll(pi + 1));
           };
 
-          const loop = () => {
-            typePhrase(phrases[pi], () => {
-              erasePhrase(() => {
-                pi = (pi + 1) % phrases.length;
-                setTimeout(loop, 200);
-              });
-            });
-          };
-
-          setTimeout(loop, 900);
+          setTimeout(() => typeAll(0), 900);
         }
 
         if (reduceMotion) return;
