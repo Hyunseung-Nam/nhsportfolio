@@ -238,6 +238,7 @@ h1 span {
   font-weight: 700;
   font-size: 0.9rem;
   line-height: 1;
+  overflow: hidden;
   transition: transform 0.18s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
@@ -830,6 +831,7 @@ html.js-motion .reveal.is-visible {
   background: linear-gradient(120deg, var(--cta-start), var(--cta-end));
   border-color: transparent;
   color: #fff;
+  overflow: hidden;
 }
 
 /* === Project Placeholder (In Progress) === */
