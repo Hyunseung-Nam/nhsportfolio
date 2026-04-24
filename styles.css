@@ -243,13 +243,13 @@ h1 span {
 }
 
 .btn-solid {
-  background: linear-gradient(120deg, var(--cta-start) 0%, var(--cta-end) 100%);
+  background: #7c5cff;
   color: #ffffff;
   box-shadow: 0 12px 30px rgba(124, 92, 255, 0.34);
 }
 
 .btn-solid:hover {
-  background: linear-gradient(120deg, var(--cta-hover-start) 0%, var(--cta-hover-end) 100%);
+  background: #6e4dff;
 }
 
 .btn-solid:active {
@@ -828,10 +828,9 @@ html.js-motion .reveal.is-visible {
 }
 
 .filter-btn.active {
-  background: linear-gradient(120deg, var(--cta-start), var(--cta-end));
+  background: #7c5cff;
   border-color: transparent;
   color: #fff;
-  overflow: hidden;
 }
 
 /* === Project Placeholder (In Progress) === */
