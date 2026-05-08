@@ -1,6 +1,10 @@
-# Portfolio Landing Page
+# 남현승 포트폴리오
 
-실무형 백엔드 개발자 포트폴리오 정적 사이트입니다.
+불편함을 발견하고, 실제로 쓰이는 것을 만듭니다.
+
+기획부터 배포, 유지보수까지.
+실제 매장에서 운영 중인 납품 프로젝트부터
+본인이 직접 쓰려고 만든 iOS 앱까지.
 
 ## Access Links
 - Main: https://nhsportfolio.vercel.app
