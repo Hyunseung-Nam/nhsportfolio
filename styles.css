@@ -282,6 +282,7 @@ h1 span {
 .hero-metrics {
   display: grid;
   gap: 0.76rem;
+  align-items: start;
 }
 
 .metric-card {
